@@ -1,0 +1,1 @@
+resource :occupancy, only: [:show]

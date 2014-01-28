@@ -1,0 +1,7 @@
+pl:
+  top_menu_occupancy: "Słupki"
+  header_occupancy: "Słupki"
+  permission_see_occupancy: "Podgląd słupków"
+  label_occupancy_users: "Dostęp użytkowników do słupków"
+  label_new_occupancy_user: "Dodaj kolejnego użytkownika"
+  label_remove_occupancy_user: "Usuń"
