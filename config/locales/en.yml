@@ -1,7 +1,7 @@
 en:
-  top_menu_occupancy: "Users occupancy"
-  header_occupancy: "Users occupancy"
-  permission_see_occupancy: "See user occupancy"
-  label_occupancy_users: "User access"
-  label_new_occupancy_user: "Add another user"
-  label_remove_occupancy_user: "Remove"
+  top_menu_handlebars: "Handlebars"
+  header_handlebars: "Handlebars"
+  permission_see_handlebars: "Handlebars"
+  label_handlebars_users: "User access"
+  label_new_handlebars_user: "Add another user"
+  label_remove_handlebars_user: "Remove"

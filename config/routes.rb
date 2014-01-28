@@ -1,1 +1,1 @@
-resource :occupancy, only: [:show]
+resource :handlebars, only: [:show]

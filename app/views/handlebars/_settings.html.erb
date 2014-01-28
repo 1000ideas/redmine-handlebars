@@ -1,0 +1,44 @@
+<% Rails.logger.debug settings.inspect %>
+<table class="handlebars-settings">
+  <tbody>
+    <tr>
+      <th><%= l(:label_handlebars_users) %></th>
+      <td>
+        <%= hidden_field(:settings, :users, value: settings[:users]) %>
+        <table class="handlebars-users">
+          <tbody>
+
+            <% JSON.parse(settings[:users] || '{}').each do |manager, users| %>
+              <%= content_tag(:tr) do %>
+                <td>
+                  <%= select_tag :managers, options_from_collection_for_select(User.scoped, :id, :name, manager.to_i), include_blank: true, id: nil %>
+                </td>
+                <td>
+                  <%= select_tag :users, options_from_collection_for_select(User.scoped, :id, :name, users.try(:map, &:to_i) ), multiple: true, id: nil %>
+                </td>
+                <td>
+                  <%= link_to l(:label_remove_handlebars_user), '#', class: :'remove-handlebars-user' %>
+                </td>
+              <% end %>      
+            <% end %>
+          </tbody>
+        </table>
+        <% template = content_tag(:tr) do %>
+          <td>
+            <%= select_tag :managers, options_from_collection_for_select(User.scoped, :id, :name), include_blank: true, id: nil %>
+          </td>
+          <td>
+            <%= select_tag :users, options_from_collection_for_select(User.scoped, :id, :name), multiple: true, id: nil %>
+          </td>
+          <td>
+            <%= link_to l(:label_remove_handlebars_user), '#', class: :'remove-handlebars-user' %>
+          </td>
+        <% end %>
+        <%= link_to l(:label_new_handlebars_user), '#', id: :'new-handlebars-user', data: {template: template.to_str} %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<% content_for :header_tags do %>
+  <%= javascript_include_tag('settings', plugin: :handlebars) %>
+<% end %>

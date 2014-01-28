@@ -1,15 +1,15 @@
-Redmine::Plugin.register :occupancy do
-  name 'Occupancy plugin'
-  author '1000Ideas'
-  description 'This plugin allow you to see workers occupancy in current time'
-  version '0.0.1'
+Redmine::Plugin.register :handlebars do
+  name 'HandleBars plugin'
+  author '1000ideas'
+  description 'This plugin allow you to see unfinished work by very handle bars'
+  version '0.0.2'
   url 'http://1000i.pl'
   author_url 'http://1000i.pl'
 
-  menu :top_menu, :occupancy, {controller: :occupancies, action: :show}, caption: :top_menu_occupancy, before: :projects
+  menu :top_menu, :handlebars, {controller: :handlebars, action: :show}, caption: :top_menu_handlebars, before: :projects
 
-  permission :see_occupancy, {occupancies: :show}, require: :loggedinen
+  permission :handlebars, {handlebars: :show}, require: :loggedinen
   
-  settings default: {'users' => '{}'}, partial: 'occupancies/settings'
+  settings default: {'users' => '{}'}, partial: 'handlebars/settings'
 
 end
