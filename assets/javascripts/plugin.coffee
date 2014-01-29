@@ -3,6 +3,13 @@ class HandlebarsPlugin
   
   constructor: ->
     @_override_contextmenu_functions()
+
+    $(document).tooltip
+      items: "[data-tooltip]"
+      track: true
+      hide: false
+      content: ->
+        $(this).data('tooltip')
     true
 
   contextMenuRightClick: (event) ->
@@ -15,7 +22,7 @@ class HandlebarsPlugin
       issue_id = handlebar.data('issue-id')
       handlebar.parents('form').first().find('#ids').val(issue_id)
       contextMenuShow(event);
-      
+
   _override_contextmenu_functions: ->
     for method in ["contextMenuRightClick"]
       console.log("replace #{method}")

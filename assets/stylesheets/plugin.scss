@@ -108,3 +108,11 @@ $lh: 20px;
     }    
   }
 }
+
+
+body .ui-tooltip {
+  box-shadow: 1px 1px 0 #ddd;
+  border: 1px solid #888;
+  background: #fff;
+  border-radius: 0;
+}

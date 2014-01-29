@@ -7,6 +7,14 @@
 
     function HandlebarsPlugin() {
       this._override_contextmenu_functions();
+      $(document).tooltip({
+        items: "[data-tooltip]",
+        track: true,
+        hide: false,
+        content: function() {
+          return $(this).data('tooltip');
+        }
+      });
       true;
     }
 
