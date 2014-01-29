@@ -1,5 +1,7 @@
 <h2><%= l(:header_handlebars) %></h2>
 
+<%= form_tag do %>
+<%= hidden_field_tag(:ids, nil, multiple: true) %>
 <div class="handlebars-table"><!--
 --><ul class="times"><!--
   <% 32.times do |n| %>
@@ -15,10 +17,10 @@
   </ul><!--
 <% end %>
 --></div>
+<% end %>
+<%= context_menu issues_context_menu_path %>
 
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag('plugin', plugin: :handlebars) %>
   <%= javascript_include_tag('plugin', plugin: :handlebars) %>
 <% end %>
-
-<%= context_menu issues_context_menu_path %>

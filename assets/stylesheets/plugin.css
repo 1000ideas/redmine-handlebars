@@ -49,15 +49,22 @@
     background: #fff;
     position: relative;
     z-index: 1; }
+    .handlebars-table .handlebars li {
+      max-width: 15em; }
     .handlebars-table .handlebars li.user-name {
       height: 2em;
       line-height: 2em;
       border-bottom: 1px solid #ddd; }
+      .handlebars-table .handlebars li.user-name h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        max-width: 100%; }
     .handlebars-table .handlebars .handlebar {
       border: 1px solid #ddd;
       border-top: 0;
-      padding: 0 1em;
-      max-width: 15em; }
+      padding: 0 1em; }
       .handlebars-table .handlebars .handlebar.height-1 {
         height: 20px; }
       .handlebars-table .handlebars .handlebar.height-2 {
@@ -193,3 +200,5 @@
         display: inline-block;
         max-width: 100%;
         font-size: .8em; }
+      .handlebars-table .handlebars .handlebar:hover {
+        background: #ddd; }

@@ -65,17 +65,28 @@ $lh: 20px;
     position: relative;
     z-index: 1;
 
+    li {
+      max-width: 15em;
+    }
+
     li.user-name {
       height: 2em;
       line-height: 2em;
       border-bottom: 1px solid #ddd;
+
+      h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        max-width: 100%;
+      }
     }
 
     .handlebar {
       border: 1px solid #ddd;
       border-top: 0;
       padding: 0 1em;
-      max-width: 15em;
 
       @for $i from 1 through 16*4 {
         &.height-#{$i} { height: $i*$lh; }
@@ -88,6 +99,10 @@ $lh: 20px;
         display: inline-block;
         max-width: 100%;
         font-size: .8em;
+      }
+
+      &:hover {
+        background: #ddd;
       }
 
     }    
