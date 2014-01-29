@@ -1,7 +1,7 @@
 <h2><%= l(:header_handlebars) %></h2>
 
 <%= form_tag do %>
-<%= hidden_field_tag(:ids, nil, multiple: true) %>
+<%= hidden_field_tag("ids[]", nil, id: nil, class: "issue-id-placeholder") %>
 <div class="handlebars-table"><!--
 --><ul class="times"><!--
   <% 32.times do |n| %>

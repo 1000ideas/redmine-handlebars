@@ -27,7 +27,7 @@
       } else {
         event.preventDefault();
         issue_id = handlebar.data('issue-id');
-        handlebar.parents('form').first().find('#ids').val(issue_id);
+        handlebar.parents('form').first().find('.issue-id-placeholder').val(issue_id);
         return contextMenuShow(event);
       }
     };

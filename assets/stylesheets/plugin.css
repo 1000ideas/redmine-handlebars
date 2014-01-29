@@ -60,7 +60,10 @@
         overflow: hidden;
         text-overflow: ellipsis;
         display: inline-block;
-        max-width: 100%; }
+        max-width: 100%;
+        font-size: 1.2em;
+        margin: 0;
+        padding: 0; }
     .handlebars-table .handlebars .handlebar {
       border: 1px solid #ddd;
       border-top: 0;

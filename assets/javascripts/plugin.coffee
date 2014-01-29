@@ -20,7 +20,7 @@ class HandlebarsPlugin
     else
       event.preventDefault()
       issue_id = handlebar.data('issue-id')
-      handlebar.parents('form').first().find('#ids').val(issue_id)
+      handlebar.parents('form').first().find('.issue-id-placeholder').val(issue_id)
       contextMenuShow(event);
 
   _override_contextmenu_functions: ->
