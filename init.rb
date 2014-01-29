@@ -1,8 +1,10 @@
+require 'user_extension'
+
 Redmine::Plugin.register :handlebars do
   name 'HandleBars plugin'
   author '1000ideas'
   description 'This plugin allow you to see unfinished work by very handle bars'
-  version '0.0.2'
+  version '0.0.3'
   url 'http://1000i.pl'
   author_url 'http://1000i.pl'
 

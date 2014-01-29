@@ -1,1 +1,24 @@
 <h2><%= l(:header_handlebars) %></h2>
+
+<div class="handlebars-table"><!--
+--><ul class="times"><!--
+  <% 32.times do |n| %>
+--><li><%= "#{(n%8)+1}h" %></li><!--
+  <% end %>
+--></ul><!--
+<% User.current.handlebars_users.each do |user| %> 
+--><ul class="handlebars">
+    <li class="user-name"><h3><%= user.name %></h3></li>
+    <% user.handlebars_issues.each do |issue| %>
+      <%= issue_handlebar(issue, :li) %>
+    <% end %>
+  </ul><!--
+<% end %>
+--></div>
+
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag('plugin', plugin: :handlebars) %>
+  <%= javascript_include_tag('plugin', plugin: :handlebars) %>
+<% end %>
+
+<%= context_menu issues_context_menu_path %>

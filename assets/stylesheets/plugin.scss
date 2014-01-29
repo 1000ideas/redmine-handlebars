@@ -1,0 +1,95 @@
+@import 'compass/css3';
+
+$lh: 20px;
+
+.handlebars-table {
+  margin: 1em 0;
+  position: relative;
+  padding-left: 5em;
+  overflow: hidden;
+
+  > ul {
+    display: inline-block;
+    vertical-align: top;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      display: block;
+      box-sizing: border-box;
+      line-height: $lh;
+    }
+  }
+
+  .times {
+    padding: 2em 0 0 0;
+    margin-right: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    > li {
+      &:before {    
+        $shadow: 2px 1px #f5f5f5; 
+        content: '';
+        box-shadow: 0 $lh $shadow, 0 2*$lh $shadow, 0 3*$lh $shadow;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 5em;
+        right: 0;
+      }
+
+      height: 4*$lh;
+      padding: 3*$lh 1em 0 0;
+      min-width: 8*$lh;
+      border-bottom: 1px solid #ddd;
+      // border-top: 0;
+      text-align: left;
+      font-weight: bold;
+      position: relative;
+
+      &:nth-child(8n) {
+        border-bottom-color: #888;
+        @include background(linear-gradient(#fff, #ebebeb));
+      }
+    }
+  }
+
+  .handlebars {
+    margin-left: -1px;
+    margin-bottom: 2em;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+
+    li.user-name {
+      height: 2em;
+      line-height: 2em;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .handlebar {
+      border: 1px solid #ddd;
+      border-top: 0;
+      padding: 0 1em;
+      max-width: 15em;
+
+      @for $i from 1 through 16*4 {
+        &.height-#{$i} { height: $i*$lh; }
+      }
+
+      span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        max-width: 100%;
+        font-size: .8em;
+      }
+
+    }    
+  }
+}

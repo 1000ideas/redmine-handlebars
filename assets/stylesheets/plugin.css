@@ -1,0 +1,195 @@
+.handlebars-table {
+  margin: 1em 0;
+  position: relative;
+  padding-left: 5em;
+  overflow: hidden; }
+  .handlebars-table > ul {
+    display: inline-block;
+    vertical-align: top;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .handlebars-table > ul > li {
+      display: block;
+      box-sizing: border-box;
+      line-height: 20px; }
+  .handlebars-table .times {
+    padding: 2em 0 0 0;
+    margin-right: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; }
+    .handlebars-table .times > li {
+      height: 80px;
+      padding: 60px 1em 0 0;
+      min-width: 160px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+      font-weight: bold;
+      position: relative; }
+      .handlebars-table .times > li:before {
+        content: '';
+        box-shadow: 0 20px 2px 1px whitesmoke, 0 40px 2px 1px whitesmoke, 0 60px 2px 1px whitesmoke;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 5em;
+        right: 0; }
+      .handlebars-table .times > li:nth-child(8n) {
+        border-bottom-color: #888;
+        background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #ebebeb));
+        background: -webkit-linear-gradient(#ffffff, #ebebeb);
+        background: -moz-linear-gradient(#ffffff, #ebebeb);
+        background: -o-linear-gradient(#ffffff, #ebebeb);
+        background: linear-gradient(#ffffff, #ebebeb); }
+  .handlebars-table .handlebars {
+    margin-left: -1px;
+    margin-bottom: 2em;
+    background: #fff;
+    position: relative;
+    z-index: 1; }
+    .handlebars-table .handlebars li.user-name {
+      height: 2em;
+      line-height: 2em;
+      border-bottom: 1px solid #ddd; }
+    .handlebars-table .handlebars .handlebar {
+      border: 1px solid #ddd;
+      border-top: 0;
+      padding: 0 1em;
+      max-width: 15em; }
+      .handlebars-table .handlebars .handlebar.height-1 {
+        height: 20px; }
+      .handlebars-table .handlebars .handlebar.height-2 {
+        height: 40px; }
+      .handlebars-table .handlebars .handlebar.height-3 {
+        height: 60px; }
+      .handlebars-table .handlebars .handlebar.height-4 {
+        height: 80px; }
+      .handlebars-table .handlebars .handlebar.height-5 {
+        height: 100px; }
+      .handlebars-table .handlebars .handlebar.height-6 {
+        height: 120px; }
+      .handlebars-table .handlebars .handlebar.height-7 {
+        height: 140px; }
+      .handlebars-table .handlebars .handlebar.height-8 {
+        height: 160px; }
+      .handlebars-table .handlebars .handlebar.height-9 {
+        height: 180px; }
+      .handlebars-table .handlebars .handlebar.height-10 {
+        height: 200px; }
+      .handlebars-table .handlebars .handlebar.height-11 {
+        height: 220px; }
+      .handlebars-table .handlebars .handlebar.height-12 {
+        height: 240px; }
+      .handlebars-table .handlebars .handlebar.height-13 {
+        height: 260px; }
+      .handlebars-table .handlebars .handlebar.height-14 {
+        height: 280px; }
+      .handlebars-table .handlebars .handlebar.height-15 {
+        height: 300px; }
+      .handlebars-table .handlebars .handlebar.height-16 {
+        height: 320px; }
+      .handlebars-table .handlebars .handlebar.height-17 {
+        height: 340px; }
+      .handlebars-table .handlebars .handlebar.height-18 {
+        height: 360px; }
+      .handlebars-table .handlebars .handlebar.height-19 {
+        height: 380px; }
+      .handlebars-table .handlebars .handlebar.height-20 {
+        height: 400px; }
+      .handlebars-table .handlebars .handlebar.height-21 {
+        height: 420px; }
+      .handlebars-table .handlebars .handlebar.height-22 {
+        height: 440px; }
+      .handlebars-table .handlebars .handlebar.height-23 {
+        height: 460px; }
+      .handlebars-table .handlebars .handlebar.height-24 {
+        height: 480px; }
+      .handlebars-table .handlebars .handlebar.height-25 {
+        height: 500px; }
+      .handlebars-table .handlebars .handlebar.height-26 {
+        height: 520px; }
+      .handlebars-table .handlebars .handlebar.height-27 {
+        height: 540px; }
+      .handlebars-table .handlebars .handlebar.height-28 {
+        height: 560px; }
+      .handlebars-table .handlebars .handlebar.height-29 {
+        height: 580px; }
+      .handlebars-table .handlebars .handlebar.height-30 {
+        height: 600px; }
+      .handlebars-table .handlebars .handlebar.height-31 {
+        height: 620px; }
+      .handlebars-table .handlebars .handlebar.height-32 {
+        height: 640px; }
+      .handlebars-table .handlebars .handlebar.height-33 {
+        height: 660px; }
+      .handlebars-table .handlebars .handlebar.height-34 {
+        height: 680px; }
+      .handlebars-table .handlebars .handlebar.height-35 {
+        height: 700px; }
+      .handlebars-table .handlebars .handlebar.height-36 {
+        height: 720px; }
+      .handlebars-table .handlebars .handlebar.height-37 {
+        height: 740px; }
+      .handlebars-table .handlebars .handlebar.height-38 {
+        height: 760px; }
+      .handlebars-table .handlebars .handlebar.height-39 {
+        height: 780px; }
+      .handlebars-table .handlebars .handlebar.height-40 {
+        height: 800px; }
+      .handlebars-table .handlebars .handlebar.height-41 {
+        height: 820px; }
+      .handlebars-table .handlebars .handlebar.height-42 {
+        height: 840px; }
+      .handlebars-table .handlebars .handlebar.height-43 {
+        height: 860px; }
+      .handlebars-table .handlebars .handlebar.height-44 {
+        height: 880px; }
+      .handlebars-table .handlebars .handlebar.height-45 {
+        height: 900px; }
+      .handlebars-table .handlebars .handlebar.height-46 {
+        height: 920px; }
+      .handlebars-table .handlebars .handlebar.height-47 {
+        height: 940px; }
+      .handlebars-table .handlebars .handlebar.height-48 {
+        height: 960px; }
+      .handlebars-table .handlebars .handlebar.height-49 {
+        height: 980px; }
+      .handlebars-table .handlebars .handlebar.height-50 {
+        height: 1000px; }
+      .handlebars-table .handlebars .handlebar.height-51 {
+        height: 1020px; }
+      .handlebars-table .handlebars .handlebar.height-52 {
+        height: 1040px; }
+      .handlebars-table .handlebars .handlebar.height-53 {
+        height: 1060px; }
+      .handlebars-table .handlebars .handlebar.height-54 {
+        height: 1080px; }
+      .handlebars-table .handlebars .handlebar.height-55 {
+        height: 1100px; }
+      .handlebars-table .handlebars .handlebar.height-56 {
+        height: 1120px; }
+      .handlebars-table .handlebars .handlebar.height-57 {
+        height: 1140px; }
+      .handlebars-table .handlebars .handlebar.height-58 {
+        height: 1160px; }
+      .handlebars-table .handlebars .handlebar.height-59 {
+        height: 1180px; }
+      .handlebars-table .handlebars .handlebar.height-60 {
+        height: 1200px; }
+      .handlebars-table .handlebars .handlebar.height-61 {
+        height: 1220px; }
+      .handlebars-table .handlebars .handlebar.height-62 {
+        height: 1240px; }
+      .handlebars-table .handlebars .handlebar.height-63 {
+        height: 1260px; }
+      .handlebars-table .handlebars .handlebar.height-64 {
+        height: 1280px; }
+      .handlebars-table .handlebars .handlebar span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        max-width: 100%;
+        font-size: .8em; }

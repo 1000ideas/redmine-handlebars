@@ -1,6 +1,6 @@
 pl:
   top_menu_handlebars: "Słupki"
-  header_handlebars: "Słupki"
+  header_handlebars: "Poręczne słupki"
   permission_see_handlebars: "Podgląd słupków"
   label_handlebars_users: "Dostęp użytkowników do słupków"
   label_new_handlebars_user: "Dodaj kolejnego użytkownika"
