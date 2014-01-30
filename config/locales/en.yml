@@ -5,3 +5,5 @@ en:
   label_handlebars_users: "User access"
   label_new_handlebars_user: "Add another user"
   label_remove_handlebars_user: "Remove"
+  label_overtime: "Spent time is more than estimated"
+  label_working_on: "Currently user is working on"

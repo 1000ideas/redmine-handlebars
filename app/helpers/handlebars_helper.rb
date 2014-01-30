@@ -2,9 +2,9 @@ module HandlebarsHelper
 
   def issue_handlebar(issue, tag = :div)
     maximum = false
-    height = (4*((issue.estimated_hours || 0) - issue.spent_hours)).to_i
-    Rails.logger.debug height
-    height = 1 unless height > 0
+
+    timespan = (issue.estimated_hours || 0) - issue.spent_hours
+    height = timespan > 0 ? (4*timespan).to_i : 1
     
     if height > 16*4
       maximum = true
@@ -30,7 +30,16 @@ module HandlebarsHelper
     end
 
     content_tag tag, class: class_name, data: {issue_id: issue.id, tooltip: tooltip.to_str} do
-      content_tag(:span, "##{issue.id} #{issue.subject}")
+      items = [content_tag(:span, "##{issue.id} #{issue.subject}")]
+      items << content_tag(:span, class: :status) do
+        subitems = []
+        subitems << content_tag(:i, '', class: :play, title: l(:label_working_on)) if issue.respond_to?(:started?) and issue.started?
+        subitems << content_tag(:i, '!', class: :'overtime', title: l(:label_overtime)) if timespan < 0
+        subitems.join.html_safe
+      end
+      
+      items << content_tag(:span, "#{timespan}h", class: "more-than-max") if maximum
+      items.join.html_safe
     end
   end
 end

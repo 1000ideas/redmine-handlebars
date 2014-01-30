@@ -67,12 +67,14 @@ $lh: 20px;
 
     li {
       max-width: 15em;
+      padding: 0 2em 0 1em;
     }
 
     li.user-name {
       height: 2em;
       line-height: 2em;
       border-bottom: 1px solid #ddd;
+      border-right: 1px solid #ddd;
 
       h3 {
         white-space: nowrap;
@@ -87,9 +89,9 @@ $lh: 20px;
     }
 
     .handlebar {
+      position: relative;
       border: 1px solid #ddd;
       border-top: 0;
-      padding: 0 1em;
 
       @for $i from 1 through 16*4 {
         &.height-#{$i} { height: $i*$lh; }
@@ -106,6 +108,39 @@ $lh: 20px;
 
       &:hover {
         background: #ddd;
+      }
+
+      span.status {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      i.play {
+        &:before {
+          content: '';
+          border: 5px solid transparent;
+          border-left-color: #000;
+          border-left-width: 8px;
+          border-right-width: 0;
+          display: inline-block;
+        }
+        margin-right: .5em;
+        cursor: help;
+      }
+
+      i.overtime {
+        margin-right: .5em;
+        font-weight: bold;
+        color: #f33;
+        cursor: help;
+
+      }
+
+      span.more-than-max {
+        position: absolute;
+        bottom: 0;
+        left: 0; 
       }
 
     }    

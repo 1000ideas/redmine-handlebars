@@ -9,12 +9,14 @@
   <% end %>
 --></ul><!--
 <% User.current.handlebars_users.each do |user| %> 
+  <% if user.assigned_issues.any?  %>
 --><ul class="handlebars">
     <li class="user-name"><h3><%= user.name %></h3></li>
     <% user.handlebars_issues.each do |issue| %>
       <%= issue_handlebar(issue, :li) %>
     <% end %>
   </ul><!--
+  <% end %>
 <% end %>
 --></div>
 <% end %>

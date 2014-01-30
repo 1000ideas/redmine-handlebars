@@ -50,11 +50,13 @@
     position: relative;
     z-index: 1; }
     .handlebars-table .handlebars li {
-      max-width: 15em; }
+      max-width: 15em;
+      padding: 0 2em 0 1em; }
     .handlebars-table .handlebars li.user-name {
       height: 2em;
       line-height: 2em;
-      border-bottom: 1px solid #ddd; }
+      border-bottom: 1px solid #ddd;
+      border-right: 1px solid #ddd; }
       .handlebars-table .handlebars li.user-name h3 {
         white-space: nowrap;
         overflow: hidden;
@@ -65,9 +67,9 @@
         margin: 0;
         padding: 0; }
     .handlebars-table .handlebars .handlebar {
+      position: relative;
       border: 1px solid #ddd;
-      border-top: 0;
-      padding: 0 1em; }
+      border-top: 0; }
       .handlebars-table .handlebars .handlebar.height-1 {
         height: 20px; }
       .handlebars-table .handlebars .handlebar.height-2 {
@@ -205,6 +207,29 @@
         font-size: .8em; }
       .handlebars-table .handlebars .handlebar:hover {
         background: #ddd; }
+      .handlebars-table .handlebars .handlebar span.status {
+        position: absolute;
+        top: 0;
+        right: 0; }
+      .handlebars-table .handlebars .handlebar i.play {
+        margin-right: .5em;
+        cursor: help; }
+        .handlebars-table .handlebars .handlebar i.play:before {
+          content: '';
+          border: 5px solid transparent;
+          border-left-color: #000;
+          border-left-width: 8px;
+          border-right-width: 0;
+          display: inline-block; }
+      .handlebars-table .handlebars .handlebar i.overtime {
+        margin-right: .5em;
+        font-weight: bold;
+        color: #f33;
+        cursor: help; }
+      .handlebars-table .handlebars .handlebar span.more-than-max {
+        position: absolute;
+        bottom: 0;
+        left: 0; }
 
 body .ui-tooltip {
   box-shadow: 1px 1px 0 #ddd;

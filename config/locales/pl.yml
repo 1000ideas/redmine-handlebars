@@ -5,3 +5,5 @@ pl:
   label_handlebars_users: "Dostęp użytkowników do słupków"
   label_new_handlebars_user: "Dodaj kolejnego użytkownika"
   label_remove_handlebars_user: "Usuń"
+  label_overtime: "Spędzono wiecej czasu niż założono"
+  label_working_on: "Aktualnie użytkownik pracuje"
