@@ -1,6 +1,6 @@
 <h2><%= l(:header_handlebars) %></h2>
 
-<%= form_tag do %>
+<%= form_tag '', id: :'handlebars-form' do %>
 <%= hidden_field_tag("ids[]", nil, id: nil, class: "issue-id-placeholder") %>
 <div class="handlebars-table"><!--
 --><ul class="times"><!--

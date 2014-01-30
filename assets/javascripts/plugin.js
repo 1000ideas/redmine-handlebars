@@ -3,10 +3,13 @@
   var HandlebarsPlugin;
 
   HandlebarsPlugin = (function() {
+    HandlebarsPlugin.refresh_time = 60;
+
     HandlebarsPlugin.function_backup = {};
 
     function HandlebarsPlugin() {
       this._override_contextmenu_functions();
+      this._init_auto_refresh();
       $(document).tooltip({
         items: "[data-tooltip]",
         track: true,
@@ -17,6 +20,41 @@
       });
       true;
     }
+
+    HandlebarsPlugin.prototype.refresh = function(done) {
+      var _this = this;
+      if (done == null) {
+        done = (function() {
+          return _this._reset_auto_refresh();
+        });
+      }
+      return $.ajax({
+        url: location.href,
+        dataType: 'html',
+        success: function(data) {
+          return $(data).filter('form').replaceAll('#handlebars-form');
+        },
+        complete: done
+      });
+    };
+
+    HandlebarsPlugin.prototype._init_auto_refresh = function() {
+      var _this = this;
+      return this.refresh_timeout_id = setTimeout(function() {
+        return _this.refresh(function() {
+          return _this._init_auto_refresh();
+        });
+      }, HandlebarsPlugin.refresh_time * 1000);
+    };
+
+    HandlebarsPlugin.prototype._clear_auto_refresh = function() {
+      return clearTimeout(this.refresh_timeout_id);
+    };
+
+    HandlebarsPlugin.prototype._reset_auto_refresh = function() {
+      this._clear_auto_refresh();
+      return this._init_auto_refresh();
+    };
 
     HandlebarsPlugin.prototype.contextMenuRightClick = function(event) {
       var handlebar, issue_id, target;
@@ -38,7 +76,6 @@
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         method = _ref[_i];
-        console.log("replace " + method);
         HandlebarsPlugin.function_backup[method] = window[method];
         _results.push(window[method] = this[method]);
       }
