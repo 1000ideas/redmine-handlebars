@@ -24,13 +24,14 @@ module HandlebarsHelper
       items << content_tag(:strong, "##{issue.id} ") + issue.subject
       items << desc
       items << content_tag(:strong, "#{l(:field_author)}: ") + issue.author.name
+      items << content_tag(:strong, "#{l(:field_project)}: ") + issue.project.name
       items << content_tag(:strong, "#{l(:field_estimated_hours)}: ") + "#{issue.estimated_hours}h"
       items << content_tag(:strong, "#{l(:label_spent_time)}: ") + "#{issue.spent_hours}h"
       items.join('<br />').html_safe
     end
 
     content_tag tag, class: class_name, data: {issue_id: issue.id, tooltip: tooltip.to_str} do
-      items = [content_tag(:span, "##{issue.id} #{issue.subject}")]
+      items = [link_to("##{issue.id} #{issue.subject}", issue, target: '_blank')]
       items << content_tag(:span, class: :status) do
         subitems = []
         subitems << content_tag(:i, '', class: :play, title: l(:label_working_on)) if issue.respond_to?(:started?) and issue.started?
@@ -38,7 +39,9 @@ module HandlebarsHelper
         subitems.join.html_safe
       end
       
+      items << content_tag(:span, '', class: "progress done-#{issue.done_ratio}")
       items << content_tag(:span, "#{timespan}h", class: "more-than-max") if maximum
+      
       items.join.html_safe
     end
   end

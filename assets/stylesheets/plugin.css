@@ -198,7 +198,7 @@
         height: 1260px; }
       .handlebars-table .handlebars .handlebar.height-64 {
         height: 1280px; }
-      .handlebars-table .handlebars .handlebar span {
+      .handlebars-table .handlebars .handlebar a, .handlebars-table .handlebars .handlebar span {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -207,6 +207,34 @@
         font-size: .8em; }
       .handlebars-table .handlebars .handlebar:hover {
         background: #ddd; }
+      .handlebars-table .handlebars .handlebar span.progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background: #48B348; }
+        .handlebars-table .handlebars .handlebar span.progress.done-0 {
+          width: 0%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-10 {
+          width: 10%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-20 {
+          width: 20%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-30 {
+          width: 30%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-40 {
+          width: 40%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-50 {
+          width: 50%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-60 {
+          width: 60%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-70 {
+          width: 70%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-80 {
+          width: 80%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-90 {
+          width: 90%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-100 {
+          width: 100%; }
       .handlebars-table .handlebars .handlebar span.status {
         position: absolute;
         top: 0;

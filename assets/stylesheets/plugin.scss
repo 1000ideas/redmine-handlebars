@@ -93,11 +93,12 @@ $lh: 20px;
       border: 1px solid #ddd;
       border-top: 0;
 
+
       @for $i from 1 through 16*4 {
         &.height-#{$i} { height: $i*$lh; }
       }
 
-      span {
+      a, span {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -108,6 +109,21 @@ $lh: 20px;
 
       &:hover {
         background: #ddd;
+      }
+
+      span.progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        height: 2px;
+        background: #48B348;
+
+        @for $i from 0 through 10 {
+          &.done-#{10*$i} {
+            width: $i*10%;
+          }
+        }  
       }
 
       span.status {
