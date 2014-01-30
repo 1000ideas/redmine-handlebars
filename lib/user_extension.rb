@@ -10,9 +10,12 @@ module UserExtension
 
   def handlebars_issues(reload = false)
     default_due_date = DateTime.now
-    assigned_issues(reload).sort! do |a, b|
-      [b.priority.position, a.due_date || default_due_date, b.id] <=> [a.priority.position, b.due_date || default_due_date, a.id]
-    end
+    assigned_issues(reload)
+      .joins(:status)
+      .where(issue_statuses: {is_closed: false})
+      .sort! do |a, b|
+        [b.priority.position, a.due_date || default_due_date, b.id] <=> [a.priority.position, b.due_date || default_due_date, a.id]
+      end
   end
 
   def handlebars_user_ids
