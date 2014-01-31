@@ -8,15 +8,16 @@
 --><li><%= "#{(n%8)+1}h" %></li><!--
   <% end %>
 --></ul><!--
-<% User.current.handlebars_users.each do |user| %> 
-  <% if user.handlebars_issues.any?  %>
---><ul class="handlebars">
-    <li class="user-name"><h3><%= user.name %></h3></li>
+<% User.current.handlebars_users.each do |user| %>
+--><ul class="handlebars <%= "hidden" if @hidden.include?(user.id) %>" data-user-id="<%= user.id %>">
+    <li class="user-name">
+      <h3><%= user.name %></h3>
+      <%= link_to '', '#', class: :hide %>
+    </li>
     <% user.handlebars_issues.each do |issue| %>
       <%= issue_handlebar(issue, :li) %>
     <% end %>
   </ul><!--
-  <% end %>
 <% end %>
 --></div>
 <% end %>

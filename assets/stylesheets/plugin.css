@@ -1,7 +1,8 @@
 .handlebars-table {
-  margin: 1em 0;
+  margin: 0 0 1em 0;
   position: relative;
   padding-left: 5em;
+  padding-top: 2em;
   overflow: hidden; }
   .handlebars-table > ul {
     display: inline-block;
@@ -49,6 +50,36 @@
     background: #fff;
     position: relative;
     z-index: 1; }
+    .handlebars-table .handlebars.hidden {
+      width: 0; }
+      .handlebars-table .handlebars.hidden > li {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 0; }
+        .handlebars-table .handlebars.hidden > li:hover {
+          border: 0; }
+        .handlebars-table .handlebars.hidden > li.user-name {
+          overflow: visible; }
+          .handlebars-table .handlebars.hidden > li.user-name h3 {
+            display: none; }
+          .handlebars-table .handlebars.hidden > li.user-name .hide {
+            top: auto;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -5px;
+            margin-bottom: 5px;
+            width: 10px;
+            border-bottom: 0;
+            background: #888;
+            height: 17px;
+            border-radius: 3px 3px 0 0; }
+            .handlebars-table .handlebars.hidden > li.user-name .hide:before {
+              border: 5px solid transparent;
+              border-top: 5px solid #888;
+              border-bottom: 0;
+              position: absolute;
+              top: 100%; }
     .handlebars-table .handlebars li {
       max-width: 15em;
       padding: 0 2em 0 1em; }
@@ -56,7 +87,21 @@
       height: 2em;
       line-height: 2em;
       border-bottom: 1px solid #ddd;
-      border-right: 1px solid #ddd; }
+      border-right: 1px solid #ddd;
+      position: relative; }
+      .handlebars-table .handlebars li.user-name .hide {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 5px;
+        width: 10px;
+        height: 10px; }
+        .handlebars-table .handlebars li.user-name .hide:before {
+          content: '';
+          border: 5px solid transparent;
+          border-right: 10px solid #000;
+          border-left: 0;
+          display: block; }
       .handlebars-table .handlebars li.user-name h3 {
         white-space: nowrap;
         overflow: hidden;

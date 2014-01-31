@@ -10,6 +10,7 @@
     function HandlebarsPlugin() {
       this._override_contextmenu_functions();
       this._init_auto_refresh();
+      this._init_hide_show_column();
       $(document).tooltip({
         items: "[data-tooltip]",
         track: true,
@@ -54,6 +55,23 @@
     HandlebarsPlugin.prototype._reset_auto_refresh = function() {
       this._clear_auto_refresh();
       return this._init_auto_refresh();
+    };
+
+    HandlebarsPlugin.prototype._init_hide_show_column = function() {
+      return $(document).on('click', '.handlebars .user-name .hide', function(event) {
+        var hidden;
+        event.preventDefault();
+        $(event.target).parents('.handlebars').toggleClass('hidden');
+        hidden = $('.handlebars.hidden').map(function(idx, el) {
+          return $(el).data('user-id');
+        });
+        document.cookie = "handlebars-hidden=" + (JSON.stringify(hidden.toArray()).replace(',', '|'));
+        if ($(event.target).parents('.handlebars').hasClass('hidden')) {
+          return $(event.target).attr('title', $(event.target).prev().text());
+        } else {
+          return $(event.target).removeAttr('title');
+        }
+      });
     };
 
     HandlebarsPlugin.prototype.contextMenuRightClick = function(event) {

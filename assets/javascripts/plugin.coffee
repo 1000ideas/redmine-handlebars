@@ -7,6 +7,8 @@ class HandlebarsPlugin
   constructor: ->
     @_override_contextmenu_functions()
     @_init_auto_refresh()
+    @_init_hide_show_column()
+
 
     $(document).tooltip
       items: "[data-tooltip]"
@@ -38,6 +40,25 @@ class HandlebarsPlugin
   _reset_auto_refresh: ->
     @_clear_auto_refresh()
     @_init_auto_refresh()
+
+  _init_hide_show_column: ->
+    $(document).on 'click', '.handlebars .user-name .hide', (event) ->
+      event.preventDefault()
+      
+      $(event.target).parents('.handlebars').toggleClass('hidden')
+
+
+      hidden = $('.handlebars.hidden').map (idx, el) ->
+        $(el).data('user-id')
+
+      document.cookie = "handlebars-hidden=#{JSON.stringify(hidden.toArray()).replace(',', '|')}"
+
+      if $(event.target).parents('.handlebars').hasClass('hidden')
+        $(event.target).attr('title', $(event.target).prev().text())
+      else
+        $(event.target).removeAttr('title')
+
+
 
   contextMenuRightClick: (event) ->
     target = $(event.target)

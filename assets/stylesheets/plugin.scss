@@ -3,9 +3,10 @@
 $lh: 20px;
 
 .handlebars-table {
-  margin: 1em 0;
+  margin: 0 0 1em 0;
   position: relative;
   padding-left: 5em;
+  padding-top: 2em;
   overflow: hidden;
 
   > ul {
@@ -65,6 +66,45 @@ $lh: 20px;
     position: relative;
     z-index: 1;
 
+    &.hidden {
+      width: 0;
+      > li {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+
+        &:hover {
+          border: 0;
+        }
+
+        &.user-name {
+          overflow: visible;          
+          h3 { display:  none; }
+
+          .hide {
+            top: auto;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -5px;
+            margin-bottom: 5px;
+            width: 10px;
+            border-bottom: 0;
+            background: #888;
+            height: 17px;
+            border-radius: 3px 3px 0 0;
+            &:before {
+              border: 5px solid transparent;
+              border-top: 5px solid #888;
+              border-bottom: 0;
+              position: absolute;
+              top: 100%;
+            }
+          }
+        }
+      }
+    }
+
     li {
       max-width: 15em;
       padding: 0 2em 0 1em;
@@ -75,6 +115,23 @@ $lh: 20px;
       line-height: 2em;
       border-bottom: 1px solid #ddd;
       border-right: 1px solid #ddd;
+      position: relative;
+
+      .hide {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 5px;
+        width: 10px;
+        height: 10px;
+        &:before {
+          content: '';
+          border: 5px solid transparent;
+          border-right: 10px solid #000;
+          border-left: 0;
+          display: block;
+        }
+      }
 
       h3 {
         white-space: nowrap;
