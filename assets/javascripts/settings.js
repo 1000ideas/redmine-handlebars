@@ -9,6 +9,9 @@
         event.preventDefault();
         return _this.new_user(event.target);
       });
+      $('.handlebars-users select[multiple]').each(function(idx, el) {
+        return _this.adjust_list_size(el);
+      });
       $(document).on('click', '.remove-handlebars-user', function(event) {
         event.preventDefault();
         $(event.target).parents('tr').first().remove();
@@ -20,9 +23,22 @@
       true;
     }
 
+    HandlebarsPluginSettings.prototype.adjust_list_size = function(select) {
+      var count;
+      count = $(select).find('option').length;
+      if (count > 10) {
+        count = 10;
+      }
+      return $(select).attr('size', count);
+    };
+
     HandlebarsPluginSettings.prototype.new_user = function(link) {
-      var template;
+      var template,
+        _this = this;
       template = $($(link).data('template'));
+      template.find('select[multiple]').each(function(idx, el) {
+        return _this.adjust_list_size(el);
+      });
       $(link).prev().find('tbody').append(template);
       return true;
     };

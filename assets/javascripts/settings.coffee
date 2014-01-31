@@ -4,6 +4,9 @@ class HandlebarsPluginSettings
       event.preventDefault()
       @new_user(event.target)
 
+    $('.handlebars-users select[multiple]').each (idx, el) =>
+      @adjust_list_size(el)
+
     $(document).on 'click', '.remove-handlebars-user', (event) =>
       event.preventDefault()
       $(event.target).parents('tr').first().remove()
@@ -14,8 +17,15 @@ class HandlebarsPluginSettings
 
     true
 
+  adjust_list_size: (select) ->
+    count = $(select).find('option').length
+    count = 10 if count > 10
+    $(select).attr('size', count)
+
   new_user: (link)->
     template = $( $(link).data('template') )
+    template.find('select[multiple]').each (idx, el) =>
+      @adjust_list_size(el)
     $(link).prev().find('tbody').append template
     true
 
