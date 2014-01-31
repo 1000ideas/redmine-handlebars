@@ -69,7 +69,17 @@
     .handlebars-table .handlebars .handlebar {
       position: relative;
       border: 1px solid #ddd;
-      border-top: 0; }
+      border-top: 0;
+      padding-left: 2em; }
+      .handlebars-table .handlebars .handlebar:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%; }
       .handlebars-table .handlebars .handlebar.height-1 {
         height: 20px; }
       .handlebars-table .handlebars .handlebar.height-2 {
@@ -206,7 +216,8 @@
         max-width: 100%;
         font-size: .8em; }
       .handlebars-table .handlebars .handlebar:hover {
-        background: #ddd; }
+        background: #fafafa;
+        border-left: 2px solid #aaa; }
       .handlebars-table .handlebars .handlebar span.progress {
         position: absolute;
         top: 0;

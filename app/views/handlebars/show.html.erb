@@ -24,5 +24,10 @@
 
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag('plugin', plugin: :handlebars) %>
+  <style type="text/css">
+    <% IssuePriority.colors.each_with_index do |color, idx| %>
+    .handlebar.priority-position-<%= idx+1 %>:before { background: <%= color %>; }      
+    <% end %>    
+  </style>  
   <%= javascript_include_tag('plugin', plugin: :handlebars) %>
 <% end %>

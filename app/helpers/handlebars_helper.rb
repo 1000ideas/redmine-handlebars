@@ -11,8 +11,14 @@ module HandlebarsHelper
       height = 16*4
     end
     
-    class_name = [:hascontextmenu, :handlebar, :"height-#{height}"]
+    class_name = [
+      :hascontextmenu,
+      :handlebar,
+      :"height-#{height}",
+      :"priority-position-#{issue.priority.position}"
+    ]
     class_name << :maximum if maximum
+    
     
     desc = strip_tags(issue.description)
     if desc.length > 300
@@ -25,6 +31,7 @@ module HandlebarsHelper
       items << desc
       items << content_tag(:strong, "#{l(:field_author)}: ") + issue.author.name
       items << content_tag(:strong, "#{l(:field_project)}: ") + issue.project.name
+      items << content_tag(:strong, "#{l(:field_priority)}: ") + issue.priority.name
       items << content_tag(:strong, "#{l(:field_estimated_hours)}: ") + "#{issue.estimated_hours}h"
       items << content_tag(:strong, "#{l(:label_spent_time)}: ") + "#{issue.spent_hours}h"
       items.join('<br />').html_safe

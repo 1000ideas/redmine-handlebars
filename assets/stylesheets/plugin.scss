@@ -92,6 +92,18 @@ $lh: 20px;
       position: relative;
       border: 1px solid #ddd;
       border-top: 0;
+      padding-left: 2em;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+      }
 
 
       @for $i from 1 through 16*4 {
@@ -108,7 +120,8 @@ $lh: 20px;
       }
 
       &:hover {
-        background: #ddd;
+        background: #fafafa;
+        border-left: 2px solid #aaa;
       }
 
       span.progress {
