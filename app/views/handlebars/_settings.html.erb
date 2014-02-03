@@ -7,8 +7,8 @@
         <%= hidden_field(:settings, :users, value: settings[:users]) %>
         <table class="handlebars-users">
           <tbody>
-
-            <% JSON.parse(settings[:users] || '{}').each do |manager, users| %>
+            <% handlebars_users = JSON.parse(settings[:users] || '{}') rescue {} %>
+            <% handlebars_users.each do |manager, users| %>
               <%= content_tag(:tr) do %>
                 <td>
                   <%= select_tag :managers, options_from_collection_for_select(User.scoped, :id, :name, manager.to_i), include_blank: true, id: nil %>
