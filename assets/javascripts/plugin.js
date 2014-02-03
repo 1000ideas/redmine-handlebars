@@ -57,20 +57,42 @@
       return this._init_auto_refresh();
     };
 
+    HandlebarsPlugin.prototype.hide_user = function(id) {
+      var name;
+      name = $(".handlebars[data-user-id=" + id + "]").addClass('hidden').find('h3').text();
+      $('<li>').attr('data-user-id', id).append($('<a>').attr('href', '#').addClass('show-user').text(name)).appendTo('.hidden-handlebars-users ul');
+      if ($(".hidden-handlebars-users ul li").length > 0) {
+        $(".hidden-handlebars-users").removeClass('hide');
+      }
+      return this.set_hidden_users_cookie();
+    };
+
+    HandlebarsPlugin.prototype.show_user = function(id) {
+      $(".handlebars[data-user-id=" + id + "]").removeClass('hidden');
+      $(".hidden-handlebars-users ul li[data-user-id=" + id + "]").remove();
+      if ($(".hidden-handlebars-users ul li").length === 0) {
+        $(".hidden-handlebars-users").addClass('hide');
+      }
+      return this.set_hidden_users_cookie();
+    };
+
+    HandlebarsPlugin.prototype.set_hidden_users_cookie = function() {
+      var hidden;
+      hidden = $('.hidden-handlebars-users ul li').map(function(idx, el) {
+        return $(el).data('user-id');
+      });
+      return document.cookie = "handlebars-hidden=" + (JSON.stringify(hidden.toArray()).replace(',', '|'));
+    };
+
     HandlebarsPlugin.prototype._init_hide_show_column = function() {
-      return $(document).on('click', '.handlebars .user-name .hide', function(event) {
-        var hidden;
+      var _this = this;
+      $(document).on('click', '.handlebars .user-name .hide', function(event) {
         event.preventDefault();
-        $(event.target).parents('.handlebars').toggleClass('hidden');
-        hidden = $('.handlebars.hidden').map(function(idx, el) {
-          return $(el).data('user-id');
-        });
-        document.cookie = "handlebars-hidden=" + (JSON.stringify(hidden.toArray()).replace(',', '|'));
-        if ($(event.target).parents('.handlebars').hasClass('hidden')) {
-          return $(event.target).attr('title', $(event.target).prev().text());
-        } else {
-          return $(event.target).removeAttr('title');
-        }
+        return _this.hide_user($(event.target).parents('.handlebars').data('user-id'));
+      });
+      return $(document).on('click', '.hidden-handlebars-users', function(event) {
+        event.preventDefault();
+        return _this.show_user($(event.target).parent().data('user-id'));
       });
     };
 

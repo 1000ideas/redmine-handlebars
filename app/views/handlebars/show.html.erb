@@ -2,6 +2,14 @@
 
 <%= form_tag '', id: :'handlebars-form' do %>
 <%= hidden_field_tag("ids[]", nil, id: nil, class: "issue-id-placeholder") %>
+<div class="hidden-handlebars-users <%= "hide" if @hidden.empty? %>">
+  <em><%= l(:label_hidden_users) %></em>
+  <ul>
+    <% @hidden.each do |user| %>
+    <li data-user-id="<%= user.id %>"><%= link_to user.name, '#', class: "show-user" %></li>
+    <% end %>
+  </ul>
+</div>
 <div class="handlebars-table"><!--
 --><ul class="times"><!--
   <% 32.times do |n| %>
@@ -9,10 +17,10 @@
   <% end %>
 --></ul><!--
 <% User.current.handlebars_users.each do |user| %>
---><ul class="handlebars <%= "hidden" if @hidden.include?(user.id) %>" data-user-id="<%= user.id %>">
+--><ul class="handlebars <%= "hidden" if @hidden.include?(user) %>" data-user-id="<%= user.id %>">
     <li class="user-name">
-      <h3><%= user.name %></h3>
       <%= link_to '', '#', class: :hide %>
+      <h3><%= user.name %></h3>
     </li>
     <% user.handlebars_issues.each do |issue| %>
       <%= issue_handlebar(issue, :li) %>

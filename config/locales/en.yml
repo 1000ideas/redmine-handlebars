@@ -7,3 +7,4 @@ en:
   label_remove_handlebars_user: "Remove"
   label_overtime: "Spent time is more than estimated"
   label_working_on: "Currently user is working on"
+  label_hidden_users: "Show hidden users: "

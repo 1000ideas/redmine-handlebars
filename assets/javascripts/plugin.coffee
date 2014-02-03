@@ -41,22 +41,49 @@ class HandlebarsPlugin
     @_clear_auto_refresh()
     @_init_auto_refresh()
 
+  hide_user: (id) ->
+    name = $(".handlebars[data-user-id=#{id}]")
+      .addClass('hidden')
+      .find('h3')
+      .text()
+    
+    $('<li>')
+      .attr('data-user-id', id)
+      .append( $('<a>').attr('href', '#').addClass('show-user').text(name) )
+      .appendTo('.hidden-handlebars-users ul')
+
+    if $(".hidden-handlebars-users ul li").length > 0
+      $(".hidden-handlebars-users").removeClass('hide')
+
+    @set_hidden_users_cookie()
+
+  show_user: (id) ->
+    $(".handlebars[data-user-id=#{id}]")
+      .removeClass('hidden')
+
+    $(".hidden-handlebars-users ul li[data-user-id=#{id}]")
+      .remove()
+
+    if $(".hidden-handlebars-users ul li").length == 0
+      $(".hidden-handlebars-users").addClass('hide')
+
+    @set_hidden_users_cookie()
+
+  set_hidden_users_cookie: ->
+    hidden = $('.hidden-handlebars-users ul li').map (idx, el) ->
+      $(el).data('user-id')
+
+    document.cookie = "handlebars-hidden=#{JSON.stringify(hidden.toArray()).replace(',', '|')}"
+
+
   _init_hide_show_column: ->
-    $(document).on 'click', '.handlebars .user-name .hide', (event) ->
+    $(document).on 'click', '.handlebars .user-name .hide', (event) =>
       event.preventDefault()
-      
-      $(event.target).parents('.handlebars').toggleClass('hidden')
+      @hide_user $(event.target).parents('.handlebars').data('user-id')
 
-
-      hidden = $('.handlebars.hidden').map (idx, el) ->
-        $(el).data('user-id')
-
-      document.cookie = "handlebars-hidden=#{JSON.stringify(hidden.toArray()).replace(',', '|')}"
-
-      if $(event.target).parents('.handlebars').hasClass('hidden')
-        $(event.target).attr('title', $(event.target).prev().text())
-      else
-        $(event.target).removeAttr('title')
+    $(document).on 'click', '.hidden-handlebars-users', (event) =>
+      event.preventDefault();
+      @show_user $(event.target).parent().data('user-id')
 
 
 

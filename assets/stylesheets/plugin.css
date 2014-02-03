@@ -1,9 +1,40 @@
+.hidden-handlebars-users {
+  min-height: 20px; }
+  .hidden-handlebars-users.hide {
+    width: 0;
+    overflow: hidden; }
+    .hidden-handlebars-users.hide em {
+      white-space: nowrap; }
+    .hidden-handlebars-users.hide ul {
+      display: none; }
+  .hidden-handlebars-users ul {
+    display: inline-block;
+    padding: 0;
+    margin: 0; }
+    .hidden-handlebars-users ul li {
+      display: inline-block;
+      margin-right: 20px; }
+      .hidden-handlebars-users ul li a {
+        box-sizing: border-box;
+        display: block;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        line-height: 20px;
+        background: #eee;
+        padding: 0 10px;
+        color: #ccc;
+        text-decoration: none; }
+        .hidden-handlebars-users ul li a:hover, .hidden-handlebars-users ul li a:focus {
+          color: #000; }
+
 .handlebars-table {
   margin: 0 0 1em 0;
   position: relative;
   padding-left: 5em;
   padding-top: 2em;
-  overflow: hidden; }
+  overflow-y: hidden;
+  white-space: nowrap;
+  min-height: 640px; }
   .handlebars-table > ul {
     display: inline-block;
     vertical-align: top;
@@ -51,35 +82,7 @@
     position: relative;
     z-index: 1; }
     .handlebars-table .handlebars.hidden {
-      width: 0; }
-      .handlebars-table .handlebars.hidden > li {
-        width: 0;
-        padding: 0;
-        overflow: hidden;
-        border: 0; }
-        .handlebars-table .handlebars.hidden > li:hover {
-          border: 0; }
-        .handlebars-table .handlebars.hidden > li.user-name {
-          overflow: visible; }
-          .handlebars-table .handlebars.hidden > li.user-name h3 {
-            display: none; }
-          .handlebars-table .handlebars.hidden > li.user-name .hide {
-            top: auto;
-            bottom: 100%;
-            left: 50%;
-            margin-left: -5px;
-            margin-bottom: 5px;
-            width: 10px;
-            border-bottom: 0;
-            background: #888;
-            height: 17px;
-            border-radius: 3px 3px 0 0; }
-            .handlebars-table .handlebars.hidden > li.user-name .hide:before {
-              border: 5px solid transparent;
-              border-top: 5px solid #888;
-              border-bottom: 0;
-              position: absolute;
-              top: 100%; }
+      display: none; }
     .handlebars-table .handlebars li {
       max-width: 15em;
       padding: 0 2em 0 1em; }
@@ -88,25 +91,30 @@
       line-height: 2em;
       border-bottom: 1px solid #ddd;
       border-right: 1px solid #ddd;
+      border-left: 1px solid #ddd;
       position: relative; }
       .handlebars-table .handlebars li.user-name .hide {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 5px;
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px solid #000;
+        border-radius: 3px;
         width: 10px;
-        height: 10px; }
+        height: 10px;
+        color: #000;
+        text-decoration: none;
+        text-align: center; }
         .handlebars-table .handlebars li.user-name .hide:before {
-          content: '';
-          border: 5px solid transparent;
-          border-right: 10px solid #000;
-          border-left: 0;
+          content: '-';
+          line-height: 10px;
+          font-size: 10px;
+          height: 10px;
           display: block; }
       .handlebars-table .handlebars li.user-name h3 {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         display: inline-block;
+        vertical-align: middle;
         max-width: 100%;
         font-size: 1.2em;
         margin: 0;
