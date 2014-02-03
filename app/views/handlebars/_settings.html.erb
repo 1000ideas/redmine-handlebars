@@ -7,14 +7,15 @@
         <%= hidden_field(:settings, :users, value: settings[:users]) %>
         <table class="handlebars-users">
           <tbody>
+            <% user_list = User.active.all %>
             <% handlebars_users = JSON.parse(settings[:users] || '{}') rescue {} %>
             <% handlebars_users.each do |manager, users| %>
               <%= content_tag(:tr) do %>
                 <td>
-                  <%= select_tag :managers, options_from_collection_for_select(User.scoped, :id, :name, manager.to_i), include_blank: true, id: nil %>
+                  <%= select_tag :managers, options_from_collection_for_select(user_list, :id, :name, manager.to_i), include_blank: true, id: nil %>
                 </td>
                 <td>
-                  <%= select_tag :users, options_from_collection_for_select(User.scoped, :id, :name, users.try(:map, &:to_i) ), multiple: true, id: nil %>
+                  <%= select_tag :users, options_from_collection_for_select(user_list, :id, :name, users.try(:map, &:to_i) ), multiple: true, id: nil %>
                 </td>
                 <td>
                   <%= link_to l(:label_remove_handlebars_user), '#', class: :'remove-handlebars-user' %>
@@ -25,10 +26,10 @@
         </table>
         <% template = content_tag(:tr) do %>
           <td>
-            <%= select_tag :managers, options_from_collection_for_select(User.scoped, :id, :name), include_blank: true, id: nil %>
+            <%= select_tag :managers, options_from_collection_for_select(user_list, :id, :name), include_blank: true, id: nil %>
           </td>
           <td>
-            <%= select_tag :users, options_from_collection_for_select(User.scoped, :id, :name), multiple: true, id: nil %>
+            <%= select_tag :users, options_from_collection_for_select(user_list, :id, :name), multiple: true, id: nil %>
           </td>
           <td>
             <%= link_to l(:label_remove_handlebars_user), '#', class: :'remove-handlebars-user' %>

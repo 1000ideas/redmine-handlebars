@@ -29,7 +29,7 @@ module UserExtension
   end
 
   def handlebars_users
-    User.where(id: handlebars_user_ids)
+    User.active.where(id: handlebars_user_ids)
   end
 
   def handlebars?
