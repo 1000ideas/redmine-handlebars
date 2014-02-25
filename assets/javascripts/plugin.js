@@ -11,6 +11,7 @@
       this._override_contextmenu_functions();
       this._init_auto_refresh();
       this._init_hide_show_column();
+      this._init_selectable();
       $(document).tooltip({
         items: "[data-tooltip]",
         track: true,
@@ -96,17 +97,70 @@
       });
     };
 
-    HandlebarsPlugin.prototype.contextMenuRightClick = function(event) {
-      var handlebar, issue_id, target;
-      target = $(event.target);
-      handlebar = target.closest('.handlebar');
-      if (handlebar.length === 0) {
-        return HandlebarsPlugin.function_backup.contextMenuRightClick(event);
+    HandlebarsPlugin.prototype.unselect_all_issues = function() {
+      $('.hascontextmenu').removeClass('selected');
+      return $('#handlebars-form input[name="ids[]"]').remove();
+    };
+
+    HandlebarsPlugin.prototype.click_on_issue = function(id, ctrl, left) {
+      var form, handlebar, input, selected_count;
+      if (ctrl == null) {
+        ctrl = false;
+      }
+      if (left == null) {
+        left = false;
+      }
+      selected_count = $('.hascontextmenu.selected').length;
+      handlebar = $("[data-issue-id=" + id + "]");
+      form = handlebar.closest('form');
+      if (!(ctrl || left)) {
+        this.unselect_all_issues();
+      }
+      if (left) {
+        if (!handlebar.hasClass('selected')) {
+          this.unselect_all_issues();
+        }
+        handlebar.addClass('selected');
       } else {
-        event.preventDefault();
-        issue_id = handlebar.data('issue-id');
-        handlebar.parents('form').first().find('.issue-id-placeholder').val(issue_id);
-        return contextMenuShow(event);
+        handlebar.toggleClass('selected');
+      }
+      input = form.find("input[type=hidden][value=" + id + "]");
+      if (handlebar.hasClass('selected') && input.length === 0) {
+        input = $('<input>').attr('type', 'hidden').attr('value', id).attr('name', 'ids[]');
+        form.prepend(input);
+      } else if (!handlebar.hasClass('selected')) {
+        input.remove();
+      }
+      return true;
+    };
+
+    HandlebarsPlugin.prototype._init_selectable = function() {
+      var _this = this;
+      $(document).on('click', '.handlebars .hascontextmenu', function(event) {
+        if (!$(event.target).is('a')) {
+          event.preventDefault();
+        }
+        return _this.click_on_issue($(event.target).closest('[data-issue-id]').data('issue-id'), event.ctrlKey);
+      });
+      return $(document).on('click', function(event) {
+        if ($(event.target).closest('.hascontextmenu').length === 0) {
+          return _this.unselect_all_issues();
+        }
+      });
+    };
+
+    HandlebarsPlugin.prototype.contextmenu = {
+      contextMenuRightClick: function(event) {
+        var handlebar, target;
+        target = $(event.target);
+        handlebar = target.closest('.handlebar');
+        if (handlebar.length === 0) {
+          return HandlebarsPlugin.function_backup.contextMenuRightClick(event);
+        } else {
+          event.preventDefault();
+          window.handlebarsPlugin.click_on_issue(handlebar.data('issue-id'), event.ctrlKey, true);
+          return contextMenuShow(event);
+        }
       }
     };
 
@@ -117,7 +171,7 @@
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         method = _ref[_i];
         HandlebarsPlugin.function_backup[method] = window[method];
-        _results.push(window[method] = this[method]);
+        _results.push(window[method] = this.contextmenu[method]);
       }
       return _results;
     };

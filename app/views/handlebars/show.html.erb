@@ -1,7 +1,7 @@
 <h2><%= l(:header_handlebars) %></h2>
 
 <%= form_tag '', id: :'handlebars-form' do %>
-<%= hidden_field_tag("ids[]", nil, id: nil, class: "issue-id-placeholder") %>
+<%#= hidden_field_tag("ids[]", nil, id: nil, class: "issue-id-placeholder") %>
 <div class="hidden-handlebars-users <%= "hide" if @hidden.empty? %>">
   <em><%= l(:label_hidden_users) %></em>
   <ul>
@@ -35,8 +35,8 @@
   <%= stylesheet_link_tag('plugin', plugin: :handlebars) %>
   <style type="text/css">
     <% IssuePriority.colors.each_with_index do |color, idx| %>
-    .handlebar.priority-position-<%= idx+1 %>:before { background: <%= color %>; }      
-    <% end %>    
-  </style>  
+    .handlebar.priority-position-<%= idx+1 %>:before { background: <%= color %>; }
+    <% end %>
+  </style>
   <%= javascript_include_tag('plugin', plugin: :handlebars) %>
 <% end %>

@@ -270,9 +270,10 @@
         display: inline-block;
         max-width: 100%;
         font-size: .8em; }
-      .handlebars-table .handlebars .handlebar:hover {
-        background: #fafafa;
-        border-left: 2px solid #aaa; }
+      .handlebars-table .handlebars .handlebar.selected {
+        background: #169; }
+        .handlebars-table .handlebars .handlebar.selected a {
+          color: #fff; }
       .handlebars-table .handlebars .handlebar span.progress {
         position: absolute;
         top: 0;

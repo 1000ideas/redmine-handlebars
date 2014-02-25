@@ -191,9 +191,13 @@ $lh: 20px;
         font-size: .8em;
       }
 
-      &:hover {
-        background: #fafafa;
-        border-left: 2px solid #aaa;
+      &.selected {
+        background: #169;
+        // border-left: 2px solid #aaa;
+
+        a {
+          color: #fff;
+        }
       }
 
       span.progress {
