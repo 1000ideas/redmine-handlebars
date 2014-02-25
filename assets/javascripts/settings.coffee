@@ -34,7 +34,8 @@ class HandlebarsPluginSettings
     $('.handlebars-users tr').each (idx, el) =>
       manager = $('select', el).first().val()
       users = $('select', el).last().val()
-      manager_users[manager] = users
+      if manager.length > 0 and users.length > 0
+        manager_users[manager] = users
 
     $('#settings_users').val JSON.stringify(manager_users)
 

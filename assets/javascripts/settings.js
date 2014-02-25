@@ -51,7 +51,9 @@
         var manager, users;
         manager = $('select', el).first().val();
         users = $('select', el).last().val();
-        return manager_users[manager] = users;
+        if (manager.length > 0 && users.length > 0) {
+          return manager_users[manager] = users;
+        }
       });
       return $('#settings_users').val(JSON.stringify(manager_users));
     };
