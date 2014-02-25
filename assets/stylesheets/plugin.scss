@@ -74,8 +74,8 @@ $lh: 20px;
     width: 100%;
 
     > li {
-      &:before {    
-        $shadow: 2px 1px #f5f5f5; 
+      &:before {
+        $shadow: 2px 1px #f5f5f5;
         content: '';
         box-shadow: 0 $lh $shadow, 0 2*$lh $shadow, 0 3*$lh $shadow;
         height: 0;
@@ -113,7 +113,7 @@ $lh: 20px;
     }
 
     li {
-      max-width: 15em;
+      max-width: 25em;
       padding: 0 2em 0 1em;
     }
 
@@ -206,7 +206,7 @@ $lh: 20px;
           &.done-#{10*$i} {
             width: $i*10%;
           }
-        }  
+        }
       }
 
       span.status {
@@ -239,10 +239,10 @@ $lh: 20px;
       span.more-than-max {
         position: absolute;
         bottom: 0;
-        left: 0; 
+        left: 0;
       }
 
-    }    
+    }
   }
 }
 

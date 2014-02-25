@@ -84,7 +84,7 @@
     .handlebars-table .handlebars.hidden {
       display: none; }
     .handlebars-table .handlebars li {
-      max-width: 15em;
+      max-width: 25em;
       padding: 0 2em 0 1em; }
     .handlebars-table .handlebars li.user-name {
       height: 2em;
