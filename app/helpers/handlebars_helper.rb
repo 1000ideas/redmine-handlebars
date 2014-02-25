@@ -4,6 +4,12 @@ module HandlebarsHelper
     maximum = false
 
     timespan = (issue.estimated_hours || 0) - issue.spent_hours
+    if issue.respond_to?(:progresstimes)
+      start = issue.progresstimes.started.last.try(:start_time)
+      if start
+        timespan -= (Time.now - start) / 3600.0
+      end
+    end
     height = timespan > 0 ? (4*timespan).to_i : 1
 
     if height > 16*4
