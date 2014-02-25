@@ -16,6 +16,7 @@
       margin-right: 20px; }
       .hidden-handlebars-users ul li a {
         box-sizing: border-box;
+        -moz-box-sizing: border-box;
         display: block;
         border: 1px solid #ddd;
         border-radius: 10px;
@@ -31,7 +32,7 @@
   margin: 0 0 1em 0;
   position: relative;
   padding-left: 5em;
-  padding-top: 2em;
+  padding-top: 0;
   overflow-y: hidden;
   white-space: nowrap;
   min-height: 640px; }
@@ -44,6 +45,7 @@
     .handlebars-table > ul > li {
       display: block;
       box-sizing: border-box;
+      -moz-box-sizing: border-box;
       line-height: 20px; }
   .handlebars-table .times {
     padding: 2em 0 0 0;
