@@ -82,7 +82,7 @@
       hidden = $('.hidden-handlebars-users ul li').map(function(idx, el) {
         return $(el).data('user-id');
       });
-      return document.cookie = "handlebars-hidden=" + (JSON.stringify(hidden.toArray()).replace(',', '|'));
+      return document.cookie = "handlebars-hidden=" + (JSON.stringify(hidden.toArray()).replace(/,/g, '|'));
     };
 
     HandlebarsPlugin.prototype._init_hide_show_column = function() {

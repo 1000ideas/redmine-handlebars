@@ -10,7 +10,7 @@ module HandlebarsHelper
         timespan -= (Time.now - start) / 3600.0
       end
     end
-    height = timespan > 0 ? (4*timespan).to_i : 1
+    height = timespan > 0 ? (4*timespan).ceil : 1
 
     if height > 16*4
       maximum = true
