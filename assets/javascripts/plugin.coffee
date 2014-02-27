@@ -74,7 +74,10 @@ class HandlebarsPlugin
     hidden = $('.hidden-handlebars-users ul li').map (idx, el) ->
       $(el).data('user-id')
 
-    document.cookie = "handlebars-hidden=#{JSON.stringify(hidden.toArray()).replace(/,/g, '|')}"
+    exdate = new Date()
+    exdate.setDate(exdate.getDate() + 356);
+
+    document.cookie = "handlebars-hidden=#{JSON.stringify(hidden.toArray()).replace(/,/g, '|')}; expires=#{exdate.toUTCString()}"
 
 
   _init_hide_show_column: ->

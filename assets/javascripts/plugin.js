@@ -78,11 +78,13 @@
     };
 
     HandlebarsPlugin.prototype.set_hidden_users_cookie = function() {
-      var hidden;
+      var exdate, hidden;
       hidden = $('.hidden-handlebars-users ul li').map(function(idx, el) {
         return $(el).data('user-id');
       });
-      return document.cookie = "handlebars-hidden=" + (JSON.stringify(hidden.toArray()).replace(/,/g, '|'));
+      exdate = new Date();
+      exdate.setDate(exdate.getDate() + 356);
+      return document.cookie = "handlebars-hidden=" + (JSON.stringify(hidden.toArray()).replace(/,/g, '|')) + "; expires=" + (exdate.toUTCString());
     };
 
     HandlebarsPlugin.prototype._init_hide_show_column = function() {
