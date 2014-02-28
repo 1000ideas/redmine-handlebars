@@ -12,7 +12,7 @@ module UserExtension
     default_due_date = DateTime.now
     assigned_issues(reload)
       .joins(:status)
-      .where(issue_statuses: {is_closed: false})
+      .where(issue_statuses: {is_closed: false}, project_id: Project.has_module(:handlebars))
       .sort! do |a, b|
         [b.priority.position, a.due_date || default_due_date, b.id] <=> [a.priority.position, b.due_date || default_due_date, a.id]
       end
