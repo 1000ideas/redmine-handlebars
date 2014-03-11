@@ -274,6 +274,12 @@
         background: #169; }
         .handlebars-table .handlebars .handlebar.selected a {
           color: #fff; }
+      .handlebars-table .handlebars .handlebar.feedback:before,
+      .handlebars-table .handlebars .handlebar.feedback span.status {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+        opacity: 0.5; }
+      .handlebars-table .handlebars .handlebar.feedback a {
+        color: #888; }
       .handlebars-table .handlebars .handlebar span.progress {
         position: absolute;
         top: 0;

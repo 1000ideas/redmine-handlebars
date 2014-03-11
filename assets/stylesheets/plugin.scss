@@ -200,6 +200,19 @@ $lh: 20px;
         }
       }
 
+      &.feedback {
+        // background: #ddd;
+
+        &:before,
+        span.status {
+          @include opacity(.5);
+        }
+
+        a {
+          color: #888;
+        }
+      }
+
       span.progress {
         position: absolute;
         top: 0;

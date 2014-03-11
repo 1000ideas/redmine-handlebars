@@ -3,6 +3,7 @@ en:
   header_handlebars: "Handlebars"
   permission_see_handlebars: "Handlebars"
   label_handlebars_users: "User access"
+  label_feedback_status: "Default feedback status"
   label_new_handlebars_user: "Add another user"
   label_remove_handlebars_user: "Remove"
   label_overtime: "Spent time is more than estimated"

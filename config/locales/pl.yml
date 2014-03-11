@@ -3,6 +3,7 @@ pl:
   header_handlebars: "Poręczne słupki"
   permission_see_handlebars: "Podgląd słupków"
   label_handlebars_users: "Dostęp użytkowników do słupków"
+  label_feedback_status: "Domyślny status feedback"
   label_new_handlebars_user: "Dodaj kolejnego użytkownika"
   label_remove_handlebars_user: "Usuń"
   label_overtime: "Spędzono wiecej czasu niż założono"

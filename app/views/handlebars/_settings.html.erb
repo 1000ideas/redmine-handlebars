@@ -37,6 +37,12 @@
         <%= link_to l(:label_new_handlebars_user), '#', id: :'new-handlebars-user', data: {template: template.to_str} %>
       </td>
     </tr>
+    <tr>
+      <th><%= l(:label_feedback_status) %></th>
+      <td>
+        <%= select_tag("settings[feedback]", options_from_collection_for_select(IssueStatus.scoped, :id, :name, Setting.plugin_handlebars['feedback'])) %>
+      </td>
+    </tr>
   </tbody>
 </table>
 <% content_for :header_tags do %>

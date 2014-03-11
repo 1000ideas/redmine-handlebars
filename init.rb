@@ -5,7 +5,7 @@ Redmine::Plugin.register :handlebars do
   name 'HandleBars plugin'
   author '1000ideas'
   description 'This plugin allow you to see unfinished work by very handle bars'
-  version '0.1.1'
+  version '0.1.2'
   url 'http://1000i.pl'
   author_url 'http://1000i.pl'
 
@@ -15,6 +15,6 @@ Redmine::Plugin.register :handlebars do
     permission :handlebars, {handlebars: :show}, require: :loggedinen
   end
 
-  settings default: {'users' => '{}'}, partial: 'handlebars/settings'
+  settings default: {'users' => '{}', 'feedback' => '4'}, partial: 'handlebars/settings'
 
 end

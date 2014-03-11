@@ -24,6 +24,7 @@ module HandlebarsHelper
       :"priority-position-#{issue.priority.position}"
     ]
     class_name << :maximum if maximum
+    class_name << :feedback if issue.status_id == Setting.plugin_handlebars['feedback'].to_i
 
 
     desc = strip_tags(issue.description)
