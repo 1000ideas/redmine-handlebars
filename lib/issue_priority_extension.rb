@@ -37,13 +37,13 @@ module IssuePriorityExtension
   module ClassMethods
     def colors
       positions = self.all.map(&:position)
-      count = positions.length.to_f
+      count = positions.length
+      return ['#009895', '#00f000', '#ffd700', '#ff8000', '#ff0000'] if count == 5
       positions.map do |p|
         # exp = (10**(2 - (p-1)/count))/100.0
-        val = ((p-1)*100.0)/(count - 1).to_f
-        hue = ((100 - val) * 178.0 / 100.0).floor
-        value = 0.8 + (val - 100)*0.2/100
-        "#%02x%02x%02x" % Helper.hsv2rgb(hue, 1, value)
+        val = ((p-1)*100.0)/(count.to_f - 1).to_f
+        hue = ((100 - val) * 170.0 / 100.0).floor
+        "#%02x%02x%02x" % Helper.hsv2rgb(hue, 1, 0.85)
       end
     end
   end
