@@ -42,3 +42,8 @@ pickle-email-*.html
 .project
 
 *.log
+
+### Sass/Coffee
+
+*.js
+*.css
