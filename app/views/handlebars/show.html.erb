@@ -16,7 +16,7 @@
 --><li><%= "#{(n%8)+1}h" %></li><!--
   <% end %>
 --></ul><!--
-<% User.current.handlebars_users.each do |user| %>
+<% @users.each do |user| %>
 --><ul class="handlebars <%= "hidden" if @hidden.include?(user) %>" data-user-id="<%= user.id %>">
     <li class="user-name">
       <%= link_to '', '#', class: :hide %>

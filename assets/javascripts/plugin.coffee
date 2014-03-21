@@ -9,6 +9,8 @@ class HandlebarsPlugin
     @_init_auto_refresh()
     @_init_hide_show_column()
     @_init_selectable()
+    jQuery =>
+      @_init_sortable()
 
 
     $(document).tooltip
@@ -17,14 +19,16 @@ class HandlebarsPlugin
       hide: false
       content: ->
         $(this).data('tooltip')
+
     true
 
   refresh: (done = (=> @_reset_auto_refresh()) )->
     $.ajax
       url: location.href
       dataType: 'html'
-      success: (data) ->
+      success: (data) =>
         $(data).filter('form').replaceAll('#handlebars-form')
+        @_init_sortable()
       complete: done
 
   _init_auto_refresh: ->
@@ -79,6 +83,15 @@ class HandlebarsPlugin
 
     document.cookie = "handlebars-hidden=#{JSON.stringify(hidden.toArray()).replace(/,/g, '|')}; expires=#{exdate.toUTCString()}"
 
+  set_users_order_cookie: ->
+    users = $('.handlebars-table .handlebars').map (idx, el) ->
+      $(el).data('user-id')
+
+    exdate = new Date()
+    exdate.setDate(exdate.getDate() + 356);
+
+    document.cookie = "handlebars-order=#{JSON.stringify(users.toArray()).replace(/,/g, '|')}; expires=#{exdate.toUTCString()}"
+
 
   _init_hide_show_column: ->
     $(document).on 'click', '.handlebars .user-name .hide', (event) =>
@@ -130,6 +143,13 @@ class HandlebarsPlugin
     $(document).on 'click', (event) =>
       if $(event.target).closest('.hascontextmenu').length == 0
         @unselect_all_issues()
+
+  _init_sortable: ->
+    $('.handlebars-table').sortable
+      handle: '.user-name h3'
+      items: '.handlebars'
+      update: (event, ui) =>
+        @set_users_order_cookie()
 
 
   contextmenu:
