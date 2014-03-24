@@ -11,6 +11,7 @@ class HandlebarsPlugin
     @_init_selectable()
     jQuery =>
       @_init_sortable()
+      @_init_drag_n_drop_assigment()
 
 
     $(document).tooltip
@@ -28,6 +29,7 @@ class HandlebarsPlugin
       dataType: 'html'
       success: (data) =>
         $(data).filter('form').replaceAll('#handlebars-form')
+        @_init_drag_n_drop_assigment()
         @_init_sortable()
       complete: done
 
@@ -134,6 +136,40 @@ class HandlebarsPlugin
 
     true
 
+  _init_drag_n_drop_assigment: ->
+    $('.handlebar').draggable
+      distance: 10
+      revert: 'invalid'
+      zIndex: 999
+      helper: 'clone'
+      appendTo: 'body'
+      cursorAt: {left: -5, top: -5}
+      start: =>
+        @_clear_auto_refresh()
+      stop: =>
+        @_init_auto_refresh()
+
+    $('.handlebars .user-name').droppable
+      accept: (element) ->
+        element.hasClass('handlebar') and $(this).siblings().filter(element).length == 0
+      activeClass: 'ui-droppable-active'
+      hoverClass:  'ui-droppable-hover'
+      tolerance: 'pointer'
+      drop: (event, ui) ->
+        assignee = $(event.target).parent().data('user-id')
+        issue = $(ui.draggable).data('issue-id')
+
+        params = $.param
+          back_url: location.href
+          ids: [issue]
+          issue: {assigned_to_id: assignee}
+
+        link = $('<a>')
+          .attr('href', "/issues/bulk_update?#{params}")
+          .data('method', 'post')
+
+        $.rails.handleMethod link
+
   _init_selectable: ->
     $(document).on 'click', '.handlebars .hascontextmenu', (event) =>
       unless $(event.target).is('a')
@@ -148,6 +184,10 @@ class HandlebarsPlugin
     $('.handlebars-table').sortable
       handle: '.user-name h3'
       items: '.handlebars'
+      start: =>
+        @_clear_auto_refresh()
+      stop: =>
+        @_init_auto_refresh()
       update: (event, ui) =>
         @set_users_order_cookie()
 

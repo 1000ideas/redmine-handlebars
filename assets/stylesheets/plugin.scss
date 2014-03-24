@@ -4,6 +4,7 @@ $lh: 20px;
 
 .hidden-handlebars-users {
   min-height: $lh;
+  margin-bottom: 1.5em;
 
   &.hide {
     width: 0;
@@ -127,6 +128,14 @@ $lh: 20px;
       border-left: 1px solid #ddd;
       position: relative;
 
+      &.ui-droppable-active {
+        background: #eee;
+      }
+      &.ui-droppable-hover {
+        background: #666;
+        h3 { color: #fff; }
+      }
+
       .hide {
         display: inline-block;
         vertical-align: middle;
@@ -134,7 +143,6 @@ $lh: 20px;
         border-radius: 3px;
         width: 10px;
         height: 10px;
-        color: #000;
         text-decoration: none;
         text-align: center;
 
@@ -272,4 +280,12 @@ body .ui-tooltip {
   border: 1px solid #888;
   background: #fff;
   border-radius: 0;
+}
+
+
+.handlebar.ui-draggable {
+  list-style: none;
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 5px 10px;
 }
