@@ -1,0 +1,352 @@
+.hidden-handlebars-users {
+  min-height: 20px;
+  margin-bottom: 1.5em; }
+  .hidden-handlebars-users.hide {
+    width: 0;
+    overflow: hidden; }
+    .hidden-handlebars-users.hide em {
+      white-space: nowrap; }
+    .hidden-handlebars-users.hide ul {
+      display: none; }
+  .hidden-handlebars-users ul {
+    display: inline-block;
+    padding: 0;
+    margin: 0; }
+    .hidden-handlebars-users ul li {
+      display: inline-block;
+      margin-right: 20px; }
+      .hidden-handlebars-users ul li a {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        display: block;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        line-height: 20px;
+        background: #eee;
+        padding: 0 10px;
+        color: #ccc;
+        text-decoration: none; }
+        .hidden-handlebars-users ul li a:hover, .hidden-handlebars-users ul li a:focus {
+          color: #000; }
+
+.handlebars-table {
+  margin: 0 0 1em 0;
+  position: relative;
+  padding-left: 5em;
+  padding-top: 0;
+  overflow-y: hidden;
+  white-space: nowrap;
+  min-height: 640px; }
+  .handlebars-table > ul {
+    display: inline-block;
+    vertical-align: top;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .handlebars-table > ul > li {
+      display: block;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      line-height: 20px; }
+  .handlebars-table .times {
+    padding: 2em 0 0 0;
+    margin-right: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; }
+    .handlebars-table .times > li {
+      height: 80px;
+      padding: 60px 1em 0 0;
+      min-width: 160px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+      font-weight: bold;
+      position: relative; }
+      .handlebars-table .times > li:before {
+        content: '';
+        box-shadow: 0 20px 2px 1px whitesmoke, 0 40px 2px 1px whitesmoke, 0 60px 2px 1px whitesmoke;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 5em;
+        right: 0; }
+      .handlebars-table .times > li:nth-child(8n) {
+        border-bottom-color: #888;
+        background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #ebebeb));
+        background: -webkit-linear-gradient(#ffffff, #ebebeb);
+        background: -moz-linear-gradient(#ffffff, #ebebeb);
+        background: -o-linear-gradient(#ffffff, #ebebeb);
+        background: linear-gradient(#ffffff, #ebebeb); }
+  .handlebars-table .handlebars {
+    margin-left: -1px;
+    margin-bottom: 2em;
+    background: #fff;
+    position: relative;
+    z-index: 1; }
+    .handlebars-table .handlebars.hidden {
+      display: none; }
+    .handlebars-table .handlebars li {
+      max-width: 25em;
+      padding: 0 2em 0 1em; }
+    .handlebars-table .handlebars li.user-name {
+      height: 2em;
+      line-height: 2em;
+      border-bottom: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      border-left: 1px solid #ddd;
+      position: relative; }
+      .handlebars-table .handlebars li.user-name.ui-droppable-active {
+        background: #eee; }
+      .handlebars-table .handlebars li.user-name.ui-droppable-hover {
+        background: #666; }
+        .handlebars-table .handlebars li.user-name.ui-droppable-hover h3 {
+          color: #fff; }
+      .handlebars-table .handlebars li.user-name .hide {
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px solid #000;
+        border-radius: 3px;
+        width: 10px;
+        height: 10px;
+        text-decoration: none;
+        text-align: center; }
+        .handlebars-table .handlebars li.user-name .hide:before {
+          content: '-';
+          line-height: 10px;
+          font-size: 10px;
+          height: 10px;
+          display: block; }
+      .handlebars-table .handlebars li.user-name h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 100%;
+        font-size: 1.2em;
+        margin: 0;
+        padding: 0;
+        cursor: pointer; }
+    .handlebars-table .handlebars .handlebar {
+      position: relative;
+      border: 1px solid #ddd;
+      border-top: 0;
+      padding-left: 2em; }
+      .handlebars-table .handlebars .handlebar:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%; }
+      .handlebars-table .handlebars .handlebar.height-1 {
+        height: 20px; }
+      .handlebars-table .handlebars .handlebar.height-2 {
+        height: 40px; }
+      .handlebars-table .handlebars .handlebar.height-3 {
+        height: 60px; }
+      .handlebars-table .handlebars .handlebar.height-4 {
+        height: 80px; }
+      .handlebars-table .handlebars .handlebar.height-5 {
+        height: 100px; }
+      .handlebars-table .handlebars .handlebar.height-6 {
+        height: 120px; }
+      .handlebars-table .handlebars .handlebar.height-7 {
+        height: 140px; }
+      .handlebars-table .handlebars .handlebar.height-8 {
+        height: 160px; }
+      .handlebars-table .handlebars .handlebar.height-9 {
+        height: 180px; }
+      .handlebars-table .handlebars .handlebar.height-10 {
+        height: 200px; }
+      .handlebars-table .handlebars .handlebar.height-11 {
+        height: 220px; }
+      .handlebars-table .handlebars .handlebar.height-12 {
+        height: 240px; }
+      .handlebars-table .handlebars .handlebar.height-13 {
+        height: 260px; }
+      .handlebars-table .handlebars .handlebar.height-14 {
+        height: 280px; }
+      .handlebars-table .handlebars .handlebar.height-15 {
+        height: 300px; }
+      .handlebars-table .handlebars .handlebar.height-16 {
+        height: 320px; }
+      .handlebars-table .handlebars .handlebar.height-17 {
+        height: 340px; }
+      .handlebars-table .handlebars .handlebar.height-18 {
+        height: 360px; }
+      .handlebars-table .handlebars .handlebar.height-19 {
+        height: 380px; }
+      .handlebars-table .handlebars .handlebar.height-20 {
+        height: 400px; }
+      .handlebars-table .handlebars .handlebar.height-21 {
+        height: 420px; }
+      .handlebars-table .handlebars .handlebar.height-22 {
+        height: 440px; }
+      .handlebars-table .handlebars .handlebar.height-23 {
+        height: 460px; }
+      .handlebars-table .handlebars .handlebar.height-24 {
+        height: 480px; }
+      .handlebars-table .handlebars .handlebar.height-25 {
+        height: 500px; }
+      .handlebars-table .handlebars .handlebar.height-26 {
+        height: 520px; }
+      .handlebars-table .handlebars .handlebar.height-27 {
+        height: 540px; }
+      .handlebars-table .handlebars .handlebar.height-28 {
+        height: 560px; }
+      .handlebars-table .handlebars .handlebar.height-29 {
+        height: 580px; }
+      .handlebars-table .handlebars .handlebar.height-30 {
+        height: 600px; }
+      .handlebars-table .handlebars .handlebar.height-31 {
+        height: 620px; }
+      .handlebars-table .handlebars .handlebar.height-32 {
+        height: 640px; }
+      .handlebars-table .handlebars .handlebar.height-33 {
+        height: 660px; }
+      .handlebars-table .handlebars .handlebar.height-34 {
+        height: 680px; }
+      .handlebars-table .handlebars .handlebar.height-35 {
+        height: 700px; }
+      .handlebars-table .handlebars .handlebar.height-36 {
+        height: 720px; }
+      .handlebars-table .handlebars .handlebar.height-37 {
+        height: 740px; }
+      .handlebars-table .handlebars .handlebar.height-38 {
+        height: 760px; }
+      .handlebars-table .handlebars .handlebar.height-39 {
+        height: 780px; }
+      .handlebars-table .handlebars .handlebar.height-40 {
+        height: 800px; }
+      .handlebars-table .handlebars .handlebar.height-41 {
+        height: 820px; }
+      .handlebars-table .handlebars .handlebar.height-42 {
+        height: 840px; }
+      .handlebars-table .handlebars .handlebar.height-43 {
+        height: 860px; }
+      .handlebars-table .handlebars .handlebar.height-44 {
+        height: 880px; }
+      .handlebars-table .handlebars .handlebar.height-45 {
+        height: 900px; }
+      .handlebars-table .handlebars .handlebar.height-46 {
+        height: 920px; }
+      .handlebars-table .handlebars .handlebar.height-47 {
+        height: 940px; }
+      .handlebars-table .handlebars .handlebar.height-48 {
+        height: 960px; }
+      .handlebars-table .handlebars .handlebar.height-49 {
+        height: 980px; }
+      .handlebars-table .handlebars .handlebar.height-50 {
+        height: 1000px; }
+      .handlebars-table .handlebars .handlebar.height-51 {
+        height: 1020px; }
+      .handlebars-table .handlebars .handlebar.height-52 {
+        height: 1040px; }
+      .handlebars-table .handlebars .handlebar.height-53 {
+        height: 1060px; }
+      .handlebars-table .handlebars .handlebar.height-54 {
+        height: 1080px; }
+      .handlebars-table .handlebars .handlebar.height-55 {
+        height: 1100px; }
+      .handlebars-table .handlebars .handlebar.height-56 {
+        height: 1120px; }
+      .handlebars-table .handlebars .handlebar.height-57 {
+        height: 1140px; }
+      .handlebars-table .handlebars .handlebar.height-58 {
+        height: 1160px; }
+      .handlebars-table .handlebars .handlebar.height-59 {
+        height: 1180px; }
+      .handlebars-table .handlebars .handlebar.height-60 {
+        height: 1200px; }
+      .handlebars-table .handlebars .handlebar.height-61 {
+        height: 1220px; }
+      .handlebars-table .handlebars .handlebar.height-62 {
+        height: 1240px; }
+      .handlebars-table .handlebars .handlebar.height-63 {
+        height: 1260px; }
+      .handlebars-table .handlebars .handlebar.height-64 {
+        height: 1280px; }
+      .handlebars-table .handlebars .handlebar a, .handlebars-table .handlebars .handlebar span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        max-width: 100%;
+        font-size: .8em; }
+      .handlebars-table .handlebars .handlebar.selected {
+        background: #169; }
+        .handlebars-table .handlebars .handlebar.selected a {
+          color: #fff; }
+      .handlebars-table .handlebars .handlebar.feedback:before,
+      .handlebars-table .handlebars .handlebar.feedback span.status {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+        opacity: 0.5; }
+      .handlebars-table .handlebars .handlebar.feedback a {
+        color: #e2e2e2; }
+      .handlebars-table .handlebars .handlebar span.progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background: #48B348; }
+        .handlebars-table .handlebars .handlebar span.progress.done-0 {
+          width: 0%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-10 {
+          width: 10%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-20 {
+          width: 20%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-30 {
+          width: 30%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-40 {
+          width: 40%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-50 {
+          width: 50%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-60 {
+          width: 60%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-70 {
+          width: 70%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-80 {
+          width: 80%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-90 {
+          width: 90%; }
+        .handlebars-table .handlebars .handlebar span.progress.done-100 {
+          width: 100%; }
+      .handlebars-table .handlebars .handlebar span.status {
+        position: absolute;
+        top: 0;
+        right: 0; }
+      .handlebars-table .handlebars .handlebar i.play {
+        margin-right: .5em;
+        cursor: help; }
+        .handlebars-table .handlebars .handlebar i.play:before {
+          content: '';
+          border: 5px solid transparent;
+          border-left-color: #000;
+          border-left-width: 8px;
+          border-right-width: 0;
+          display: inline-block; }
+      .handlebars-table .handlebars .handlebar i.overtime {
+        margin-right: .5em;
+        font-weight: bold;
+        color: #f33;
+        cursor: help; }
+      .handlebars-table .handlebars .handlebar span.more-than-max {
+        position: absolute;
+        bottom: 0;
+        left: 0; }
+
+body .ui-tooltip {
+  box-shadow: 1px 1px 0 #ddd;
+  border: 1px solid #888;
+  background: #fff;
+  border-radius: 0; }
+
+.handlebar.ui-draggable {
+  list-style: none;
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 5px 10px; }

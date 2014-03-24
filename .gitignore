@@ -45,5 +45,5 @@ pickle-email-*.html
 
 ### Sass/Coffee
 
-*.js
-*.css
+#*.js
+#*.css
