@@ -11,6 +11,7 @@ module HandlebarsHelper
       end
     end
     height = timespan > 0 ? (4*timespan).ceil : 1
+    overtime = timespan < 0 && issue.estimated_hours.present?
 
     if height > 16*4
       maximum = true
@@ -39,8 +40,8 @@ module HandlebarsHelper
       items << content_tag(:strong, "#{l(:field_author)}: ") + issue.author.name
       items << content_tag(:strong, "#{l(:field_project)}: ") + issue.project.name
       items << content_tag(:strong, "#{l(:field_priority)}: ") + issue.priority.name
-      items << content_tag(:strong, "#{l(:field_estimated_hours)}: ") + "#{issue.estimated_hours}h"
-      items << content_tag(:strong, "#{l(:label_spent_time)}: ") + "#{issue.spent_hours}h"
+      items << content_tag(:strong, "#{l(:field_estimated_hours)}: ") + "#{issue.estimated_hours}h" if issue.estimated_hours.present?
+      items << content_tag(:strong, "#{l(:label_spent_time)}: ") + "#{issue.spent_hours.round(2)}h"
       items.join('<br />').html_safe
     end
 
@@ -49,7 +50,7 @@ module HandlebarsHelper
       items << content_tag(:span, class: :status) do
         subitems = []
         subitems << content_tag(:i, '', class: :play, title: l(:label_working_on)) if issue.respond_to?(:started?) and issue.started?
-        subitems << content_tag(:i, '!', class: :'overtime', title: l(:label_overtime)) if timespan < 0
+        subitems << content_tag(:i, '!', class: :'overtime', title: l(:label_overtime)) if overtime
         subitems.join.html_safe
       end
 
