@@ -8,9 +8,9 @@ class HandlebarsController < ApplicationController
     @hidden = User.where(id: hidden_ids)
     @users = User.current.handlebars_users
 
-    if order_ids.any? and @users.present?
+    if order_ids.any?
       @users.sort_by! do |user|
-        order_ids.index(user.id)
+        order_ids.index(user.id) || 0
       end
     end
 
