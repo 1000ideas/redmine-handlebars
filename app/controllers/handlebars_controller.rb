@@ -8,11 +8,10 @@ class HandlebarsController < ApplicationController
     @hidden = User.where(id: hidden_ids)
     @users = User.current.handlebars_users
 
-    if order_ids.any?
+    if order_ids.any? and @users.present?
       @users.sort_by! do |user|
         order_ids.index(user.id)
       end
-
     end
 
     respond_to do |format|
