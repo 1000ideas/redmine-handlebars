@@ -18,9 +18,10 @@
 --></ul><!--
 <% @users.each do |user| %>
 --><ul class="handlebars <%= "hidden" if @hidden.include?(user) %>" data-user-id="<%= user.id %>">
+
     <li class="user-name">
       <%= link_to '', '#', class: :hide %>
-      <h3><%= user.name %></h3>
+      <h3><%= user.name %></h3> <span class="last-activity-span"><%= t("idle_time")+"#{time_ago_in_words(user.last_progress, true)}" if user.last_progress%></span>
     </li>
     <% user.handlebars_issues.each do |issue| %>
       <%= issue_handlebar(issue, :li) %>

@@ -6,6 +6,7 @@ module UserExtension
       class_name: 'Issue',
       foreign_key: :assigned_to_id,
       include: :priority
+    has_many :progresstimes
   end
 
   def handlebars_issues(reload = false)
@@ -34,6 +35,25 @@ module UserExtension
 
   def handlebars?
     handlebars_user_ids.any?
+  end
+
+  def last_progress
+    pr = progresstimes.where("start_time > :week", {:week => 1.week.ago})
+    time = nil
+    
+    if pr.select{|p| p.end_time == nil}.count > 0
+      pr = pr.order("start_time DESC").first
+      if pr
+        time = pr.start_time
+      end
+    else
+      pr = pr.order("end_time DESC").first
+      if pr
+        time = pr.end_time
+      end
+    end
+    return time
+    
   end
 
 end

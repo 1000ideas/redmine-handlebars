@@ -67,7 +67,6 @@ $lh: 20px;
       line-height: $lh;
     }
   }
-
   .times {
     padding: 2em 0 0 0;
     margin-right: 1px;
@@ -127,7 +126,11 @@ $lh: 20px;
       border-right: 1px solid #ddd;
       border-left: 1px solid #ddd;
       position: relative;
-
+      span.last-activity-span{
+        color: red;
+        line-height: 2em;
+        font-size: 0.9em;
+      }
       &.ui-droppable-active {
         background: #eee;
       }

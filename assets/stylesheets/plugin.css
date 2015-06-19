@@ -117,6 +117,11 @@
           font-size: 10px;
           height: 10px;
           display: block; }
+      .handlebars-table .handlebars li.user-name span.last-activity-span{
+        color: rgb(200, 191, 10);
+        line-height: 2em;
+        font-size: 0.9em;
+      }
       .handlebars-table .handlebars li.user-name h3 {
         white-space: nowrap;
         overflow: hidden;

@@ -9,3 +9,4 @@ en:
   label_overtime: "Spent time is more than estimated"
   label_working_on: "Currently user is working on"
   label_hidden_users: "Show hidden users: "
+  idle_time: "Last activity: "
