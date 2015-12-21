@@ -1,4 +1,4 @@
-# Handlebars Remine Plugin
+# Handlebars Redmine Plugin
 
 Plugin allows you to track current user work. Show in pretty way, by very handle bars, how much work user have to do in current time.
 
@@ -7,7 +7,7 @@ Plugin allows you to track current user work. Show in pretty way, by very handle
 2. Restart application
 
 ## Common installation issues
-1. Directory name inside redmine's plugins directory must be `handlebars`.
+1. Make sure that name of directory is `handlebars`.
 
 ## Configuration
 
