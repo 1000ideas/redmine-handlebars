@@ -256,7 +256,20 @@ $lh: 20px;
           display: inline-block;
         }
         margin-right: .5em;
-        cursor: help;
+        cursor: pointer;
+      }
+
+      i.stop {
+        &:before {
+          content: '';
+          border: 5px solid transparent;
+          border-left-color: #000;
+          border-left-width: 8px;
+          border-right-width: 0;
+          display: inline-block;
+        }
+        margin-right: .5em;
+        cursor: pointer;
       }
 
       i.overtime {

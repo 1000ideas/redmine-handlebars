@@ -7,6 +7,7 @@ en:
   label_new_handlebars_user: "Add another user"
   label_remove_handlebars_user: "Remove"
   label_overtime: "Spent time is more than estimated"
-  label_working_on: "Currently user is working on"
+  label_working_on: "User current's task. Click to stop working on this task."
+  label_stopped: "Click to start working on this task."
   label_hidden_users: "Show hidden users: "
   idle_time: "Last activity: "

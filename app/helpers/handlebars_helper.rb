@@ -48,8 +48,11 @@ module HandlebarsHelper
     content_tag tag, class: class_name, data: {issue_id: issue.id, tooltip: tooltip.to_str} do
       items = [link_to("##{issue.id} [#{issue.project.name}] #{issue.subject}", issue, target: '_blank')]
       items << content_tag(:span, class: :status) do
+        path = switch_time_issue_path(issue)
+        data = { remote: true, method: :post }
         subitems = []
-        subitems << content_tag(:i, '', class: :play, title: l(:label_working_on)) if issue.respond_to?(:started?) and issue.started?
+        subitems << link_to(content_tag(:i, '', class: :stop, title: l(:label_stopped)), path, data: data, class: "start-time") unless issue.started?
+        subitems << link_to(content_tag(:i, '', class: :play, title: l(:label_working_on)), path, data: data, class: "stop-time") if issue.respond_to?(:started?) and issue.started?
         subitems << content_tag(:i, '!', class: :'overtime', title: l(:label_overtime)) if overtime
         subitems.join.html_safe
       end

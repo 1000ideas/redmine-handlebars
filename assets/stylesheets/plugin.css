@@ -324,13 +324,25 @@
         position: absolute;
         top: 0;
         right: 0; }
-      .handlebars-table .handlebars .handlebar i.play {
+      .handlebars-table .handlebars .handlebar i.play, .handlebars-table .handlebars .handlebar i.stop {
         margin-right: .5em;
-        cursor: help; }
+        cursor: pointer; }
         .handlebars-table .handlebars .handlebar i.play:before {
           content: '';
           border: 5px solid transparent;
-          border-left-color: #000;
+          border-left-color: #080;
+          border-left-width: 8px;
+          border-right-width: 0;
+          display: inline-block; }
+        .handlebars-table .handlebars .handlebar:hover i.play:before {
+          content: '';
+          border: 5px solid #888;
+          border-width: 4px;
+          display: inline-block; }
+        .handlebars-table .handlebars .handlebar:hover i.stop:before {
+          content: '';
+          border: 5px solid transparent;
+          border-left-color: #888;
           border-left-width: 8px;
           border-right-width: 0;
           display: inline-block; }
