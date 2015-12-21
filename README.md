@@ -6,6 +6,9 @@ Plugin allows you to track current user work. Show in pretty way, by very handle
 1. Add plugin to your redmine's plugins directory
 2. Restart application
 
+## Common installation issues
+1. Directory name inside redmine's plugins directory must be `handlebars`.
+
 ## Configuration
 
 1. Configure plugin at `/settings/plugin/handlebars`:
