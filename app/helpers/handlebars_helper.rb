@@ -51,8 +51,8 @@ module HandlebarsHelper
         path = switch_time_issue_path(issue)
         data = { remote: true, method: :post }
         subitems = []
-        subitems << link_to(content_tag(:i, '', class: :stop, title: l(:label_stopped)), path, data: data, class: "start-time") unless issue.started?
-        subitems << link_to(content_tag(:i, '', class: :play, title: l(:label_working_on)), path, data: data, class: "stop-time") if issue.respond_to?(:started?) and issue.started?
+        subitems << link_to(content_tag(:i, '', class: :stop, title: l(:label_stopped)), path, data: data, class: [:'start-time', :'handlebars-status-icon']) unless issue.started?
+        subitems << link_to(content_tag(:i, '', class: :play, title: l(:label_working_on)), path, data: data, class: [:'stop-time', :'handlebars-status-icon']) if issue.respond_to?(:started?) and issue.started?
         subitems << content_tag(:i, '!', class: :'overtime', title: l(:label_overtime)) if overtime
         subitems.join.html_safe
       end
