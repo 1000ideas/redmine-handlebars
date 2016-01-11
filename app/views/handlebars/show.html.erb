@@ -40,4 +40,11 @@
     <% end %>
   </style>
   <%= javascript_include_tag('plugin', plugin: :handlebars) %>
+  <script>
+    $(document).ready(function() {
+      if ($('i.play').length > 0) {
+        document.title = '▶ ' + document.title;
+      }
+      });
+  </script>
 <% end %>
