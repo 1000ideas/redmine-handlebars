@@ -30,6 +30,10 @@ module UserExtension
     end
   end
 
+  def started?
+    progresstimes.where(closed: [false, nil]).any?
+  end
+
   def handlebars_users
     User.active.where(id: handlebars_user_ids)
   end
@@ -41,7 +45,7 @@ module UserExtension
   def last_progress
     pr = progresstimes.where("start_time > :week", {:week => 1.week.ago})
     time = nil
-    
+
     if pr.select{|p| p.end_time == nil}.count > 0
       pr = pr.order("start_time DESC").first
       if pr
@@ -54,7 +58,7 @@ module UserExtension
       end
     end
     return time
-    
+
   end
 
 end

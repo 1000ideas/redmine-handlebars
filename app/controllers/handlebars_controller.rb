@@ -1,6 +1,8 @@
 class HandlebarsController < ApplicationController
   unloadable
 
+  before_filter :check_in_progress, only: [:show]
+
   def show
     hidden_ids = JSON.parse( (cookies['handlebars-hidden'] || '[]').gsub('|', ',') ) rescue []
     order_ids = JSON.parse( (cookies['handlebars-order'] || '[]').gsub('|', ',') ) rescue []
@@ -17,5 +19,12 @@ class HandlebarsController < ApplicationController
     respond_to do |format|
       format.html { render layout: !request.xhr? }
     end
+  end
+
+  private
+
+  def check_in_progress
+    user_issues = Issue.where(assigned_to_id: User.current.id)
+    @any_in_progress = user_issues.any?(&:started?)
   end
 end
