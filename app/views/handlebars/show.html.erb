@@ -41,11 +41,4 @@
   </style>
   <%= javascript_include_tag('plugin', plugin: :handlebars) %>
 
-  <% if @any_in_progress %>
-    <script>
-      $(document).ready(function() {
-        document.title = '▶ ' + document.title;
-      });
-    </script>
-  <% end %>
 <% end %>
