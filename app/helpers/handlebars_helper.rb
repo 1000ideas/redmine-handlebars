@@ -39,7 +39,7 @@ module HandlebarsHelper
       items << desc
       items << content_tag(:strong, "#{l(:field_author)}: ") + issue.author.name
       items << content_tag(:strong, "#{l(:field_project)}: ") + issue.project.name
-      items << content_tag(:strong, "#{l(:field_priority)}: ") + issue.priority.name
+      items << content_tag(:strong, "#{l(:field_priority)}: ") + issue.priority.name + "(#{issue.subpriority})"
       items << content_tag(:strong, "#{l(:field_estimated_hours)}: ") + "#{issue.estimated_hours}h" if issue.estimated_hours.present?
       items << content_tag(:strong, "#{l(:label_spent_time)}: ") + "#{issue.spent_hours.round(2)}h"
       items.join('<br />').html_safe

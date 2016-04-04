@@ -1,3 +1,4 @@
+require 'handlebars/issue_extension'
 require 'handlebars/user_extension'
 require 'handlebars/issue_priority_extension'
 

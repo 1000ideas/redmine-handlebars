@@ -11,3 +11,4 @@ pl:
   label_stopped: "Kliknij, aby zacząć pracować nad zadaniem"
   label_hidden_users: "Pokaż użytkowników: "
   idle_time: "Ostatnia aktywność: "
+  field_subpriority: "Subpriorytet"

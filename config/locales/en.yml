@@ -11,3 +11,4 @@ en:
   label_stopped: "Click to start working on this task."
   label_hidden_users: "Show hidden users: "
   idle_time: "Last activity: "
+  field_subpriority: "Subpriority"
