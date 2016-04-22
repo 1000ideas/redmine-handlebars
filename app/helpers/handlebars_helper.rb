@@ -10,18 +10,24 @@ module HandlebarsHelper
     #     timespan -= (Time.now - start) / 3600.0
     #   end
     # end
-    height = timespan > 0 ? (4*timespan).ceil : 1
+    # height = timespan > 0 ? (4*timespan).ceil : 1
+    # height set to 1 due to layout issues with estimated time
+    height = 1
     overtime = timespan < 0 && issue.estimated_hours.present?
+    percentage_progress = overtime ? '11' : issue.estimated_hours.present? &&
+                          ((issue.estimated_hours - timespan) * 10 /
+                          issue.estimated_hours).round
 
-    if height > 16*4
-      maximum = true
-      height = 16*4
-    end
+    # if height > 16*4
+    #   maximum = true
+    #   height = 16*4
+    # end
 
     class_name = [
       :hascontextmenu,
       :handlebar,
       :"height-#{height}",
+      :"progress-#{percentage_progress}",
       :"priority-position-#{issue.priority.position}"
     ]
     class_name << :maximum if maximum
@@ -53,7 +59,7 @@ module HandlebarsHelper
         subitems = []
         subitems << link_to(content_tag(:i, '', class: :stop, title: l(:label_stopped)), path, data: data, class: [:'start-time', :'handlebars-status-icon']) unless issue.started?
         subitems << link_to(content_tag(:i, '', class: :play, title: l(:label_working_on)), path, data: data, class: [:'stop-time', :'handlebars-status-icon']) if issue.respond_to?(:started?) and issue.started?
-        subitems << content_tag(:i, '!', class: :'overtime', title: l(:label_overtime)) if overtime
+        # subitems << content_tag(:i, '!', class: :'overtime', title: l(:label_overtime)) if overtime
         subitems.join.html_safe
       end
 

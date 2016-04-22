@@ -189,9 +189,25 @@ $lh: 20px;
         border-radius: 100%;
       }
 
-
       @for $i from 1 through 16*4 {
         &.height-#{$i} { height: $i*$lh; }
+      }
+
+      @for $i from 0 through 10 {
+        $white_prog: 100% - ($i * 10%);
+        $green_prog: 100% - $white_prog;
+        $green: rgba(0, 200, 0, 0.2);
+        $white: rgba(255, 255, 255, 1);
+        &.progress-#{$i} {
+          background: $green;
+          background: -moz-linear-gradient(left, $green $green_prog, $white $green_prog);
+          background: -webkit-linear-gradient(left, $green $green_prog, $white $green_prog);
+          background: linear-gradient(90deg, $green $green_prog, $white $green_prog);
+        }
+      }
+      
+      &.progress-11 {
+        background: rgba(255, 0, 0, 0.3);
       }
 
       a, span {
