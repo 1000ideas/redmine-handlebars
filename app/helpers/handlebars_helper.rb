@@ -3,7 +3,7 @@ module HandlebarsHelper
   def issue_handlebar(issue, tag = :div)
     maximum = false
 
-    # issue.spent_time was added by table_it plugin
+    # issue.spent_time requiring table_it plugin
     spent_time = issue.spent_time rescue issue.spent_hours.round(2)
 
     timespan = (issue.estimated_hours || 0) - spent_time

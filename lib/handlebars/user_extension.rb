@@ -11,11 +11,11 @@ module UserExtension
 
   def handlebars_issues(reload = false)
     default_subpriority = 1
+    closed = IssueStatus.find { |status| status.is_closed == true }.id
     assigned_issues(reload)
-      .includes(:author, :project)
-      .joins(:status)
-      .where(issue_statuses: { is_closed: false },
+      .where("status_id != #{closed}",
              project_id: Project.has_module(:handlebars))
+      .includes(:author, :project)
       .where('projects.status != 9')
       .sort! do |a, b|
         [b.priority.position, b.subpriority || default_subpriority, b.id] <=>
@@ -47,17 +47,16 @@ module UserExtension
   end
 
   def last_progress
-    pr = progresstimes.where('start_time > :week', week: 1.week.ago)
+    pr = progresstimes.last
+    return nil if pr.nil?
     time = nil
-
-    if pr.select { |p| p.end_time.nil? }.count > 0
-      pr = pr.order('start_time DESC').first
-      time = pr.start_time if pr
+    
+    if pr.end_time
+      time = pr.end_time
     else
-      pr = pr.order('end_time DESC').first
-      time = pr.end_time if pr
+      time = pr.start_time
     end
-
+    
     time
   end
 end
