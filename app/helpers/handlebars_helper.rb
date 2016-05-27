@@ -3,7 +3,10 @@ module HandlebarsHelper
   def issue_handlebar(issue, tag = :div)
     maximum = false
 
-    timespan = (issue.estimated_hours || 0) - issue.spent_hours
+    # issue.spent_time was added by table_it plugin
+    spent_time = issue.spent_time rescue issue.spent_hours.round(2)
+
+    timespan = (issue.estimated_hours || 0) - spent_time
     # if issue.respond_to?(:progresstimes)
     #   start = issue.progresstimes.started.last.try(:start_time)
     #   if start
@@ -47,7 +50,7 @@ module HandlebarsHelper
       items << content_tag(:strong, "#{l(:field_project)}: ") + issue.project.name
       items << content_tag(:strong, "#{l(:field_priority)}: ") + issue.priority.name + "(#{issue.subpriority})"
       items << content_tag(:strong, "#{l(:field_estimated_hours)}: ") + "#{issue.estimated_hours}h" if issue.estimated_hours.present?
-      items << content_tag(:strong, "#{l(:label_spent_time)}: ") + "#{issue.spent_hours.round(2)}h"
+      items << content_tag(:strong, "#{l(:label_spent_time)}: ") + "#{spent_time}h"
       items.join('<br />').html_safe
     end
 
