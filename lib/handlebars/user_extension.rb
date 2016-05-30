@@ -67,7 +67,8 @@ module UserExtension
     rejected = IssueStatus.find { |status| status.name =~ /Rejected/i }.try(:id)
     projekty = Project.find { |project| project.name =~ /^_projekty$/i }.try(:id)
     the_company = Project.find { |project| project.name =~ /^the_company$/i }.try(:id)
-    [[closed, rejected], [projekty, the_company]]
+    qualified_deals = Project.find { |project| project.name =~ /^qualified deals$/i }.try(:id)
+    [[closed, rejected], [projekty, the_company, qualified_deals]]
   end
 end
 
