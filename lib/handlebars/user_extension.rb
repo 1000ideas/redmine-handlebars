@@ -11,16 +11,22 @@ module UserExtension
 
   def handlebars_issues(reload = false)
     default_subpriority = 1
-    closed = IssueStatus.find { |status| status.is_closed == true }.id
-    assigned_issues(reload)
-      .where("status_id != #{closed}",
-             project_id: Project.has_module(:handlebars))
-      .includes(:author, :project)
-      .where('projects.status != 9')
-      .sort! do |a, b|
-        [b.priority.position, b.subpriority || default_subpriority, b.id] <=>
-          [a.priority.position, a.subpriority || default_subpriority, a.id]
-      end
+    statuses, projects = rejected_values
+    statuses.compact!
+    projects.compact!
+
+    issues = assigned_issues(reload)
+             .where(project_id: Project.has_module(:handlebars))
+             .includes(:author, :project)
+             .where('projects.status != 9')
+
+    issues = issues.where('status_id NOT IN (?)', statuses) unless statuses.empty?
+    issues = issues.where('projects.id NOT IN (?)', projects) unless projects.empty?
+
+    issues.sort! do |a, b|
+      [b.priority.position, b.subpriority || default_subpriority, b.id] <=>
+        [a.priority.position, a.subpriority || default_subpriority, a.id]
+    end
   end
 
   def handlebars_user_ids
@@ -49,15 +55,19 @@ module UserExtension
   def last_progress
     pr = progresstimes.last
     return nil if pr.nil?
-    time = nil
-    
-    if pr.end_time
-      time = pr.end_time
-    else
-      time = pr.start_time
-    end
-    
-    time
+
+    return pr.end_time if pr.end_time
+    return pr.start_time if pr.start_time
+
+    nil
+  end
+
+  def rejected_values
+    closed = IssueStatus.find { |status| status.is_closed == true }.try(:id)
+    rejected = IssueStatus.find { |status| status.name =~ /Rejected/i }.try(:id)
+    projekty = Project.find { |project| project.name =~ /^_projekty$/i }.try(:id)
+    the_company = Project.find { |project| project.name =~ /^the_company$/i }.try(:id)
+    [[closed, rejected], [projekty, the_company]]
   end
 end
 
