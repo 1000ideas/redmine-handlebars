@@ -65,10 +65,11 @@ module UserExtension
   def rejected_values
     closed = IssueStatus.find { |status| status.is_closed == true }.try(:id)
     rejected = IssueStatus.find { |status| status.name =~ /Rejected/i }.try(:id)
+    works_for_me = IssueStatus.find { |status| status.name =~ /Works for me/i }.try(:id)
     projekty = Project.find { |project| project.name =~ /^_projekty$/i }.try(:id)
     the_company = Project.find { |project| project.name =~ /^the_company$/i }.try(:id)
     qualified_deals = Project.find { |project| project.name =~ /^qualified deals$/i }.try(:id)
-    [[closed, rejected], [projekty, the_company, qualified_deals]]
+    [[closed, rejected, works_for_me], [projekty, the_company, qualified_deals]]
   end
 end
 
