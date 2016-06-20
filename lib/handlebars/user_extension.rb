@@ -69,9 +69,6 @@ module UserExtension
     p1 = Project.includes(:enabled_modules).where(enabled_modules: {name: "handlebars"}).collect(&:id)
     p2 = Project.includes(:enabled_modules).where(enabled_modules: {name: "table_it"}).collect(&:id)
     projekty = Project.where("id NOT IN (?)", (p1 & p2)).collect(&:id)
-    # Project.find { |project| project.name =~ /^_projekty$/i }.try(:id)
-    # the_company = Project.find { |project| project.name =~ /^the_company$/i }.try(:id)
-    # qualified_deals = Project.find { |project| project.name =~ /^qualified deals$/i }.try(:id)
     [[closed, rejected, works_for_me], projekty]
   end
 end
