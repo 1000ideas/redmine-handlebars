@@ -133,6 +133,13 @@
         margin: 0;
         padding: 0;
         cursor: pointer; }
+    li.on-feedback {
+      border: 1px solid #ddd;
+      border-top: 0;
+      padding-left: 2em;
+      font-weight: bold;
+      height: 20px;
+    }
     .handlebars-table .handlebars .handlebar {
       position: relative;
       border: 1px solid #ddd;

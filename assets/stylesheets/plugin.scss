@@ -172,6 +172,14 @@ $lh: 20px;
       }
     }
 
+    li.on-feedback {
+      border: 1px solid #ddd;
+      border-top: 0;
+      padding-left: 2em;
+      font-weight: bold;
+      height: 20px;
+    }
+
     .handlebar {
       position: relative;
       border: 1px solid #ddd;

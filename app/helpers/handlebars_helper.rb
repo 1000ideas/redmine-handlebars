@@ -1,10 +1,9 @@
 module HandlebarsHelper
-
   def issue_handlebar(issue, tag = :div)
     maximum = false
 
-    # issue.spent_time requiring table_it plugin
-    spent_time = issue.spent_time rescue issue.spent_hours.round(2)
+    # issue.spent_time requires table_it plugin
+    spent_time = issue.try(&:spent_time) || issue.spent_hours.round(2)
 
     timespan = (issue.estimated_hours || 0) - spent_time
     # if issue.respond_to?(:progresstimes)
@@ -36,11 +35,8 @@ module HandlebarsHelper
     class_name << :maximum if maximum
     class_name << :feedback if issue.status_id == Setting.plugin_handlebars['feedback'].to_i
 
-
     desc = strip_tags(issue.description)
-    if desc.length > 300
-      desc = desc.slice(0, 299).concat("&hellip;")
-    end
+    desc = desc.slice(0, 299).concat('&hellip;') if desc.length > 300
 
     tooltip = content_tag(:div) do
       items = []
@@ -54,22 +50,28 @@ module HandlebarsHelper
       items.join('<br />').html_safe
     end
 
-    content_tag tag, class: class_name, data: {issue_id: issue.id, tooltip: tooltip.to_str} do
+    content_tag tag, class: class_name, data: { issue_id: issue.id, tooltip: tooltip.to_str } do
       items = [link_to("##{issue.id} [#{issue.project.name}] #{issue.subject}", issue, target: '_blank')]
       items << content_tag(:span, class: :status) do
         path = switch_time_issue_path(issue)
         data = { remote: true, method: :post }
         subitems = []
         subitems << link_to(content_tag(:i, '', class: :stop, title: l(:label_stopped)), path, data: data, class: [:'start-time', :'handlebars-status-icon']) unless issue.started?
-        subitems << link_to(content_tag(:i, '', class: :play, title: l(:label_working_on)), path, data: data, class: [:'stop-time', :'handlebars-status-icon']) if issue.respond_to?(:started?) and issue.started?
+        subitems << link_to(content_tag(:i, '', class: :play, title: l(:label_working_on)), path, data: data, class: [:'stop-time', :'handlebars-status-icon']) if issue.respond_to?(:started?) && issue.started?
         # subitems << content_tag(:i, '!', class: :'overtime', title: l(:label_overtime)) if overtime
         subitems.join.html_safe
       end
 
       items << content_tag(:span, '', class: "progress done-#{issue.done_ratio}")
-      items << content_tag(:span, "#{timespan}h", class: "more-than-max") if maximum
+      items << content_tag(:span, "#{timespan}h", class: 'more-than-max') if maximum
 
       items.join.html_safe
     end
+  end
+
+  def with_feedback(issues, feedback = true)
+    @feedback_id ||= Setting.plugin_handlebars['feedback'].to_i
+    return issues.find_all { |issue| issue.status_id == @feedback_id } if feedback
+    issues.find_all { |issue| issue.status_id != @feedback_id }
   end
 end

@@ -19,13 +19,23 @@
 <% @users.each do |user| %>
 --><ul class="handlebars <%= "hidden" if @hidden.include?(user) %>" data-user-id="<%= user.id %>">
 
+    <% user_issues = user.handlebars_issues %>
+
     <li class="user-name">
       <%= link_to '', '#', class: :hide %>
       <h3><%= user.name %></h3> <span class="last-activity-span"><%= t("idle_time")+"#{time_ago_in_words(user.last_progress, true)}" if user.last_progress%></span>
     </li>
-    <% user.handlebars_issues.each do |issue| %>
+    <% with_feedback(user_issues, false).each do |issue| %>
       <%= issue_handlebar(issue, :li) %>
     <% end %>
+
+    <% if (feedback_issues = with_feedback(user_issues)).any? %>
+      <li class='on-feedback height-1'>FEEDBACK</li>
+      <% feedback_issues.each do |issue| %>
+        <%= issue_handlebar(issue, :li) %>
+      <% end %>
+    <% end %>
+
   </ul><!--
 <% end %>
 --></div>
