@@ -17,11 +17,18 @@ module UserExtension
 
     issues = assigned_issues(reload)
              .where(project_id: Project.has_module(:handlebars))
-             .includes(:author, :project)
-             .where('projects.status != 9')
 
     issues = issues.where('status_id NOT IN (?)', statuses) unless statuses.empty?
-    issues = issues.where('projects.id NOT IN (?)', projects) unless projects.empty?
+    issues = issues.where('project_id NOT IN (?)', projects) unless projects.empty?
+    issues = issues.pluck(:id)
+
+    if ActiveRecord::Base.connection.table_exists? 'tracker_accessible_issue_permissions'
+      extra_issues = TrackerAccessibleIssuePermission.where(user_id: self.id).pluck(:issue_id)
+    end
+
+    issues = Issue.where('issues.id IN (?)', issues | extra_issues)
+                  .includes(:project)
+                  .where('projects.status != 9')
 
     issues.sort! do |a, b|
       [b.priority.position, b.subpriority || default_subpriority, b.id] <=>

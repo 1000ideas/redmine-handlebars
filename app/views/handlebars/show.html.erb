@@ -26,7 +26,7 @@
       <h3><%= user.name %></h3> <span class="last-activity-span"><%= t("idle_time")+"#{time_ago_in_words(user.last_progress, true)}" if user.last_progress%></span>
     </li>
     <% with_feedback(user_issues, false).each do |issue| %>
-      <%= issue_handlebar(issue, :li) %>
+      <%= issue_handlebar(issue, user.id, :li) %>
     <% end %>
 
     <% if (feedback_issues = with_feedback(user_issues)).any? %>
