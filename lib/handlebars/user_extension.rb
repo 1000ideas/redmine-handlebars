@@ -27,7 +27,7 @@ module UserExtension
     end
 
     issues = Issue.where('issues.id IN (?)', issues | extra_issues)
-                  .includes(:project)
+                  .includes(:project, :author, :priority)
                   .where('projects.status != 9')
 
     issues.sort! do |a, b|

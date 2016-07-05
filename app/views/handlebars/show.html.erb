@@ -32,7 +32,7 @@
     <% if (feedback_issues = with_feedback(user_issues)).any? %>
       <li class='on-feedback height-1'>FEEDBACK</li>
       <% feedback_issues.each do |issue| %>
-        <%= issue_handlebar(issue, :li) %>
+        <%= issue_handlebar(issue, user.id, :li) %>
       <% end %>
     <% end %>
 
