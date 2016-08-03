@@ -17,8 +17,8 @@ module HandlebarsHelper
     height = 1
     overtime = timespan < 0 && issue.estimated_hours.present?
     percentage_progress = overtime ? '11' : issue.estimated_hours.present? &&
-                          ((issue.estimated_hours - timespan) * 10 /
-                          issue.estimated_hours).round
+      ((issue.estimated_hours - timespan) * 10 /
+      issue.estimated_hours).round
 
     # if height > 16*4
     #   maximum = true
@@ -51,7 +51,11 @@ module HandlebarsHelper
     end
 
     content_tag tag, class: class_name, data: { issue_id: issue.id, tooltip: tooltip.to_str } do
-      items = [link_to("##{issue.id} [#{issue.project.name}] #{issue.subject}", issue, target: '_blank')]
+      items = if issue.assigned_to_id == user_id
+                [link_to("##{issue.id} [#{issue.project.name}] #{issue.subject}", issue, target: '_blank')]
+              else
+                [link_to("##{issue.id} [#{issue.project.name}] *#{issue.subject}", issue, target: '_blank')]
+              end
       items << content_tag(:span, class: :status) do
         path = switch_time_issue_path(issue)
         data = { remote: true, method: :post }
