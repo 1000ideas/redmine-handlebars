@@ -30,7 +30,7 @@ module IssuePriorityExtension
           [v, p, q]
         end
       end
-      rgb.map { |c| (c*255).to_i }
+      rgb.map { |c| (c * 255).to_i }
     end
   end
 
@@ -47,9 +47,6 @@ module IssuePriorityExtension
       end
     end
   end
-
-  private
-
 end
 
 IssuePriority.send :include, IssuePriorityExtension

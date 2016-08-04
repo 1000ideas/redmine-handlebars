@@ -213,7 +213,7 @@ $lh: 20px;
           background: linear-gradient(90deg, $green $green_prog, $white $green_prog);
         }
       }
-      
+
       &.progress-11 {
         background: rgba(255, 0, 0, 0.3);
       }
@@ -225,6 +225,13 @@ $lh: 20px;
         display: inline-block;
         max-width: 100%;
         font-size: .8em;
+      }
+
+      span.extra-access {
+        position: absolute;
+        top: -0.1em;
+        left: 0.7em;
+        font-size: 0.7em;
       }
 
       &.selected {

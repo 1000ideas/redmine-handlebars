@@ -51,11 +51,7 @@ module HandlebarsHelper
     end
 
     content_tag tag, class: class_name, data: { issue_id: issue.id, tooltip: tooltip.to_str } do
-      items = if issue.assigned_to_id == user_id
-                [link_to("##{issue.id} [#{issue.project.name}] #{issue.subject}", issue, target: '_blank')]
-              else
-                [link_to("##{issue.id} [#{issue.project.name}] *#{issue.subject}", issue, target: '_blank')]
-              end
+      items = [link_to("##{issue.id} [#{issue.project.name}] #{issue.subject}", issue, target: '_blank')]
       items << content_tag(:span, class: :status) do
         path = switch_time_issue_path(issue)
         data = { remote: true, method: :post }
@@ -68,6 +64,7 @@ module HandlebarsHelper
 
       items << content_tag(:span, '', class: "progress done-#{issue.done_ratio}")
       items << content_tag(:span, "#{timespan}h", class: 'more-than-max') if maximum
+      items << content_tag(:span, "E", class: 'extra-access') if issue.assigned_to_id != user_id
 
       items.join.html_safe
     end
