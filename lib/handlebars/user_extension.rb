@@ -19,6 +19,7 @@ module UserExtension
              .where(project_id: Project.has_module(:handlebars))
              .pluck(:id)
 
+    extra_issues = []
     if ActiveRecord::Base.connection.table_exists? 'tracker_accessible_issue_permissions'
       extra_issues = TrackerAccessibleIssuePermission.where(user_id: self.id).pluck(:issue_id)
     end
