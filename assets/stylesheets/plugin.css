@@ -287,58 +287,94 @@
         background: -moz-linear-gradient(left, rgba(0, 200, 0, 0.2) 0%, white 0%);
         background: -webkit-linear-gradient(left, rgba(0, 200, 0, 0.2) 0%, white 0%);
         background: linear-gradient(90deg, rgba(0, 200, 0, 0.2) 0%, white 0%); }
+      .handlebars-table .handlebars .handlebar.progress-0 a {
+        color: #387138;
+      }
       .handlebars-table .handlebars .handlebar.progress-1 {
         background: rgba(0, 200, 0, 0.2);
         background: -moz-linear-gradient(left, rgba(0, 200, 0, 0.2) 10%, white 10%);
         background: -webkit-linear-gradient(left, rgba(0, 200, 0, 0.2) 10%, white 10%);
         background: linear-gradient(90deg, rgba(0, 200, 0, 0.2) 10%, white 10%); }
+      .handlebars-table .handlebars .handlebar.progress-1 a {
+        color: #387138;
+      }
       .handlebars-table .handlebars .handlebar.progress-2 {
         background: rgba(0, 200, 0, 0.2);
         background: -moz-linear-gradient(left, rgba(0, 200, 0, 0.2) 20%, white 20%);
         background: -webkit-linear-gradient(left, rgba(0, 200, 0, 0.2) 20%, white 20%);
         background: linear-gradient(90deg, rgba(0, 200, 0, 0.2) 20%, white 20%); }
+      .handlebars-table .handlebars .handlebar.progress-2 a {
+        color: #387138;
+      }
       .handlebars-table .handlebars .handlebar.progress-3 {
         background: rgba(0, 200, 0, 0.2);
         background: -moz-linear-gradient(left, rgba(0, 200, 0, 0.2) 30%, white 30%);
         background: -webkit-linear-gradient(left, rgba(0, 200, 0, 0.2) 30%, white 30%);
         background: linear-gradient(90deg, rgba(0, 200, 0, 0.2) 30%, white 30%); }
+      .handlebars-table .handlebars .handlebar.progress-3 a {
+        color: #387138;
+      }
       .handlebars-table .handlebars .handlebar.progress-4 {
         background: rgba(0, 200, 0, 0.2);
         background: -moz-linear-gradient(left, rgba(0, 200, 0, 0.2) 40%, white 40%);
         background: -webkit-linear-gradient(left, rgba(0, 200, 0, 0.2) 40%, white 40%);
         background: linear-gradient(90deg, rgba(0, 200, 0, 0.2) 40%, white 40%); }
+      .handlebars-table .handlebars .handlebar.progress-4 a {
+        color: #387138;
+      }
       .handlebars-table .handlebars .handlebar.progress-5 {
         background: rgba(0, 200, 0, 0.2);
         background: -moz-linear-gradient(left, rgba(0, 200, 0, 0.2) 50%, white 50%);
         background: -webkit-linear-gradient(left, rgba(0, 200, 0, 0.2) 50%, white 50%);
         background: linear-gradient(90deg, rgba(0, 200, 0, 0.2) 50%, white 50%); }
+      .handlebars-table .handlebars .handlebar.progress-5 a {
+        color: #387138;
+      }
       .handlebars-table .handlebars .handlebar.progress-6 {
         background: rgba(0, 200, 0, 0.2);
         background: -moz-linear-gradient(left, rgba(0, 200, 0, 0.2) 60%, white 60%);
         background: -webkit-linear-gradient(left, rgba(0, 200, 0, 0.2) 60%, white 60%);
         background: linear-gradient(90deg, rgba(0, 200, 0, 0.2) 60%, white 60%); }
+      .handlebars-table .handlebars .handlebar.progress-6 a {
+        color: #387138;
+      }
       .handlebars-table .handlebars .handlebar.progress-7 {
         background: rgba(0, 200, 0, 0.2);
         background: -moz-linear-gradient(left, rgba(0, 200, 0, 0.2) 70%, white 70%);
         background: -webkit-linear-gradient(left, rgba(0, 200, 0, 0.2) 70%, white 70%);
         background: linear-gradient(90deg, rgba(0, 200, 0, 0.2) 70%, white 70%); }
+      .handlebars-table .handlebars .handlebar.progress-7 a {
+        color: #387138;
+      }
       .handlebars-table .handlebars .handlebar.progress-8 {
         background: rgba(0, 200, 0, 0.2);
         background: -moz-linear-gradient(left, rgba(0, 200, 0, 0.2) 80%, white 80%);
         background: -webkit-linear-gradient(left, rgba(0, 200, 0, 0.2) 80%, white 80%);
         background: linear-gradient(90deg, rgba(0, 200, 0, 0.2) 80%, white 80%); }
+      .handlebars-table .handlebars .handlebar.progress-8 a {
+        color: #387138;
+      }
       .handlebars-table .handlebars .handlebar.progress-9 {
         background: rgba(0, 200, 0, 0.2);
         background: -moz-linear-gradient(left, rgba(0, 200, 0, 0.2) 90%, white 90%);
         background: -webkit-linear-gradient(left, rgba(0, 200, 0, 0.2) 90%, white 90%);
         background: linear-gradient(90deg, rgba(0, 200, 0, 0.2) 90%, white 90%); }
+      .handlebars-table .handlebars .handlebar.progress-9 a {
+        color: #387138;
+      }
       .handlebars-table .handlebars .handlebar.progress-10 {
         background: rgba(0, 200, 0, 0.2);
         background: -moz-linear-gradient(left, rgba(0, 200, 0, 0.2) 100%, white 100%);
         background: -webkit-linear-gradient(left, rgba(0, 200, 0, 0.2) 100%, white 100%);
         background: linear-gradient(90deg, rgba(0, 200, 0, 0.2) 100%, white 100%); }
+      .handlebars-table .handlebars .handlebar.progress-10 a {
+        color: #387138;
+      }
       .handlebars-table .handlebars .handlebar.progress-11 {
         background: rgba(255, 0, 0, 0.3); }
+      .handlebars-table .handlebars .handlebar.progress-11 a {
+        color: #9c4545;
+      }
       .handlebars-table .handlebars .handlebar a, .handlebars-table .handlebars .handlebar span {
         white-space: nowrap;
         overflow: hidden;
@@ -361,6 +397,39 @@
         opacity: 0.5; }
       .handlebars-table .handlebars .handlebar.feedback a {
         color: #e2e2e2; }
+      .handlebars-table .handlebars .handlebar.feedback.progress-1 a {
+        color: #7fbf7f;
+      }
+      .handlebars-table .handlebars .handlebar.feedback.progress-2 a {
+        color: #7fbf7f;
+      }
+      .handlebars-table .handlebars .handlebar.feedback.progress-3 a {
+        color: #7fbf7f;
+      }
+      .handlebars-table .handlebars .handlebar.feedback.progress-4 a {
+        color: #7fbf7f;
+      }
+      .handlebars-table .handlebars .handlebar.feedback.progress-5 a {
+        color: #7fbf7f;
+      }
+      .handlebars-table .handlebars .handlebar.feedback.progress-6 a {
+        color: #7fbf7f;
+      }
+      .handlebars-table .handlebars .handlebar.feedback.progress-7 a {
+        color: #7fbf7f;
+      }
+      .handlebars-table .handlebars .handlebar.feedback.progress-8 a {
+        color: #7fbf7f;
+      }
+      .handlebars-table .handlebars .handlebar.feedback.progress-9 a {
+        color: #7fbf7f;
+      }
+      .handlebars-table .handlebars .handlebar.feedback.progress-10 a {
+        color: #7fbf7f;
+      }
+      .handlebars-table .handlebars .handlebar.feedback.progress-11 a {
+        color: #d98080;
+      }
       .handlebars-table .handlebars .handlebar span.progress {
         position: absolute;
         top: 0;

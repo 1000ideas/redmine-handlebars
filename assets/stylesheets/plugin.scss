@@ -211,11 +211,17 @@ $lh: 20px;
           background: -moz-linear-gradient(left, $green $green_prog, $white $green_prog);
           background: -webkit-linear-gradient(left, $green $green_prog, $white $green_prog);
           background: linear-gradient(90deg, $green $green_prog, $white $green_prog);
+          a {
+            color: #387138;
+          }
         }
       }
 
       &.progress-11 {
         background: rgba(255, 0, 0, 0.3);
+        a {
+          color: #9c4545
+        }
       }
 
       a, span {
@@ -253,6 +259,16 @@ $lh: 20px;
 
         a {
           color: #e2e2e2;
+        }
+
+        @for $i from 0 through 10 {
+          &.progress-#{$i} a {
+            color: #7fbf7f;
+          }
+        }
+
+        &.progress-11 a {
+          color: #d98080;
         }
       }
 

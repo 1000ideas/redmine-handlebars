@@ -58,7 +58,7 @@ module HandlebarsHelper
         subitems = []
         subitems << link_to(content_tag(:i, '', class: :stop, title: l(:label_stopped)), path, data: data, class: [:'start-time', :'handlebars-status-icon']) unless issue.started_by_user?(user_id)
         subitems << link_to(content_tag(:i, '', class: :play, title: l(:label_working_on)), path, data: data, class: [:'stop-time', :'handlebars-status-icon']) if issue.respond_to?(:started_by_user?) && issue.started_by_user?(user_id)
-        # subitems << content_tag(:i, '!', class: :'overtime', title: l(:label_overtime)) if overtime
+        subitems << content_tag(:i, '!', class: :'overtime', title: l(:label_overtime)) if overtime
         subitems.join.html_safe
       end
 
